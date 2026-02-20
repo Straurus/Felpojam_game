@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://nxrh4gt0qekc"]
+
+[ext_resource type="Script" uid="uid://cjmpbnpg3pyvg" path="res://Scripts/estacao.gd" id="1_mwadk"]
+[ext_resource type="Texture2D" uid="uid://b00aey4nncg1r" path="res://Assets/image/estacao.jpg" id="1_ual76"]
+[ext_resource type="Script" uid="uid://m3wduivvetoe" path="res://Scripts/character_body.gd" id="3_r26kg"]
+[ext_resource type="Texture2D" uid="uid://vmne3cyxm0vp" path="res://Assets/sprites/objects/personagem.png" id="4_v4gnm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8mt8x"]
+size = Vector2(86, 90)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_itlwe"]
+size = Vector2(102, 53)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p5fos"]
+size = Vector2(136, 162)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ad64j"]
+rough = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ynicv"]
+size = Vector2(1153, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3d0jg"]
+size = Vector2(21, 646)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7rry3"]
+size = Vector2(25, 647)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kpsxp"]
+size = Vector2(1183, 20)
+
+[node name="Station" type="Control" unique_id=1689338658]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1152.0
+offset_bottom = -648.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mwadk")
+
+[node name="estacao" type="Node2D" parent="." unique_id=58060090]
+position = Vector2(521, 295)
+
+[node name="station" type="Sprite2D" parent="estacao" unique_id=1740087677]
+position = Vector2(56, 27.999998)
+scale = Vector2(2.0313053, 2.2871025)
+texture = ExtResource("1_ual76")
+metadata/_edit_lock_ = true
+
+[node name="pontotrabalho" type="Area2D" parent="estacao" unique_id=360122048]
+position = Vector2(290, 210)
+
+[node name="CollisionWorkPoint" type="CollisionShape2D" parent="estacao/pontotrabalho" unique_id=2076023579]
+position = Vector2(1, 8)
+shape = SubResource("RectangleShape2D_8mt8x")
+
+[node name="saida" type="Area2D" parent="estacao" unique_id=1050216385]
+position = Vector2(-425, 131)
+
+[node name="CollisionShapeExit" type="CollisionShape2D" parent="estacao/saida" unique_id=1621997418]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_itlwe")
+
+[node name="bancaJornal" type="Area2D" parent="estacao" unique_id=33880380]
+position = Vector2(-188, 179)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="estacao/bancaJornal" unique_id=812791645]
+shape = SubResource("RectangleShape2D_p5fos")
+
+[node name="chao" type="StaticBody2D" parent="estacao" unique_id=896454316]
+position = Vector2(51, 280)
+physics_material_override = SubResource("PhysicsMaterial_ad64j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="estacao/chao" unique_id=165861368]
+position = Vector2(4.5, 0)
+shape = SubResource("RectangleShape2D_ynicv")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="estacao/chao" unique_id=216745295]
+position = Vector2(591.5, -252)
+shape = SubResource("RectangleShape2D_3d0jg")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="estacao/chao" unique_id=1454435749]
+position = Vector2(-583.5, -251.5)
+shape = SubResource("RectangleShape2D_7rry3")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="estacao/chao" unique_id=1059977613]
+position = Vector2(3.5, -585)
+shape = SubResource("RectangleShape2D_kpsxp")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=66660534]
+position = Vector2(575, 312)
+script = ExtResource("3_r26kg")
+metadata/_edit_lock_ = true
+
+[node name="Personagem" type="Sprite2D" parent="CharacterBody2D" unique_id=1581201515]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_v4gnm")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=333348574]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D" unique_id=307867283]
+polygon = PackedVector2Array(-4, 46, -13, 46, -13, 37, -17, 37, -17, 31, -20, 31, -20, 21, -23, 21, -23, 17, -25, 17, -25, 5, -23, 5, -23, -8, -20, -8, -20, -21, -17, -21, -17, -24, -14, -24, -14, -43, -11, -43, -11, -46, -7, -46, -7, -48, 6, -48, 6, -47, 10, -47, 10, -43, 13, -43, 13, -24, 16, -24, 16, -20, 19, -20, 19, -8, 22, -8, 22, 5, 26, 5, 25, 18, 23, 18, 22.1934, 21.226395, 19, 21, 19, 31, 16, 31, 15.999996, 37.42089, 13, 37, 13, 43, 16, 43, 16, 46, 3, 46, 3, 31, 0, 31, -1, 28, -4, 28)

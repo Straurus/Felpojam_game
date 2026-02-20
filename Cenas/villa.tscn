@@ -1,0 +1,132 @@
+[gd_scene format=3 uid="uid://crr8pr0oaw0ba"]
+
+[ext_resource type="Texture2D" uid="uid://bhurfaapsfeu" path="res://Assets/image/vila.jpg" id="1_3fvjf"]
+[ext_resource type="Script" uid="uid://d4gexkbthb46v" path="res://Scripts/villa.gd" id="1_wfhka"]
+[ext_resource type="Script" uid="uid://m3wduivvetoe" path="res://Scripts/character_body.gd" id="3_k2dcv"]
+[ext_resource type="Texture2D" uid="uid://vmne3cyxm0vp" path="res://Assets/sprites/objects/personagem.png" id="4_1ytt5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j47lh"]
+size = Vector2(241.52757, 137.18011)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gebmh"]
+size = Vector2(436.26697, 230.96667)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_clolh"]
+size = Vector2(331.30988, 110.584015)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_rwp3g"]
+outlines = Array[PackedVector2Array]([PackedVector2Array(5.0581055, 0, 499.49426, 0, -596.8639, -1.3997803)])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_foybg"]
+size = Vector2(866, 90)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_gebmh"]
+outlines = Array[PackedVector2Array]([PackedVector2Array(6.5598145, -10.615356, -225.08868, -9.798584, 249.11462, -11.198364)])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lburt"]
+size = Vector2(475.46796, 142.77933)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_j47lh"]
+rough = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rwp3g"]
+size = Vector2(1976.5, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rkkrb"]
+size = Vector2(20, 637)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_662j6"]
+size = Vector2(20, 638)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hiww7"]
+size = Vector2(2016, 20)
+
+[node name="Villa" type="Control" unique_id=457872231]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_wfhka")
+
+[node name="Vila" type="Node2D" parent="." unique_id=278849399]
+position = Vector2(990, 325)
+
+[node name="villa" type="Sprite2D" parent="Vila" unique_id=304140311]
+scale = Vector2(1.520881, 1.361468)
+texture = ExtResource("1_3fvjf")
+metadata/_edit_lock_ = true
+
+[node name="casa" type="Area2D" parent="Vila" unique_id=1745959594]
+position = Vector2(-892.1877, 148.5835)
+scale = Vector2(0.79080003, 0.7143889)
+
+[node name="CollisionHouse" type="CollisionShape2D" parent="Vila/casa" unique_id=1998772436]
+shape = SubResource("RectangleShape2D_j47lh")
+
+[node name="estacaoTrem" type="Area2D" parent="Vila" unique_id=1494682746]
+position = Vector2(816.81226, 114.58353)
+scale = Vector2(0.79080003, 0.7143889)
+
+[node name="CollisionTrainstation" type="CollisionShape2D" parent="Vila/estacaoTrem" unique_id=256103985]
+shape = SubResource("RectangleShape2D_gebmh")
+
+[node name="lojas" type="Area2D" parent="Vila" unique_id=156546249]
+position = Vector2(468.81226, 155.5835)
+scale = Vector2(0.79080003, 0.7143889)
+
+[node name="CollisionShop" type="CollisionShape2D" parent="Vila/lojas" unique_id=716347184]
+shape = SubResource("RectangleShape2D_clolh")
+
+[node name="Pessoas" type="Area2D" parent="Vila" unique_id=1940117639]
+position = Vector2(459.8125, 188.5835)
+
+[node name="pessoas" type="NavigationRegion2D" parent="Vila/Pessoas" unique_id=1526557698]
+scale = Vector2(0.79080003, 0.7143889)
+navigation_polygon = SubResource("NavigationPolygon_rwp3g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vila/Pessoas" unique_id=649041018]
+position = Vector2(-37.8125, 12.416504)
+shape = SubResource("RectangleShape2D_foybg")
+
+[node name="Cachorro" type="Area2D" parent="Vila" unique_id=1382332864]
+position = Vector2(-265.1875, 196.5835)
+scale = Vector2(0.79080003, 0.7143889)
+
+[node name="cachorro" type="NavigationRegion2D" parent="Vila/Cachorro" unique_id=716490897]
+navigation_polygon = SubResource("NavigationPolygon_gebmh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vila/Cachorro" unique_id=2140176046]
+position = Vector2(14.147034, 42.576843)
+shape = SubResource("RectangleShape2D_lburt")
+
+[node name="chao" type="StaticBody2D" parent="Vila" unique_id=1681171983]
+position = Vector2(-4, 208)
+physics_material_override = SubResource("PhysicsMaterial_j47lh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vila/chao" unique_id=1681660314]
+position = Vector2(4.25, 3)
+shape = SubResource("RectangleShape2D_rwp3g")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Vila/chao" unique_id=1063090249]
+position = Vector2(1002, -208.5)
+shape = SubResource("RectangleShape2D_rkkrb")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Vila/chao" unique_id=2049278438]
+position = Vector2(-994, -208)
+shape = SubResource("RectangleShape2D_662j6")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Vila/chao" unique_id=1815539330]
+position = Vector2(4, -537)
+shape = SubResource("RectangleShape2D_hiww7")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=660830839]
+position = Vector2(575, 312)
+script = ExtResource("3_k2dcv")
+metadata/_edit_lock_ = true
+
+[node name="Personagem" type="Sprite2D" parent="CharacterBody2D" unique_id=900044119]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_1ytt5")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1070671995]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D" unique_id=613135729]
+polygon = PackedVector2Array(-4, 46, -13, 46, -13, 37, -17, 37, -17, 31, -20, 31, -20, 21, -23, 21, -23, 17, -25, 17, -25, 5, -23, 5, -23, -8, -20, -8, -20, -21, -17, -21, -17, -24, -14, -24, -14, -43, -11, -43, -11, -46, -7, -46, -7, -48, 6, -48, 6, -47, 10, -47, 10, -43, 13, -43, 13, -24, 16, -24, 16, -20, 19, -20, 19, -8, 22, -8, 22, 5, 26, 5, 25, 18, 23, 18, 22.1934, 21.226395, 19, 21, 19, 31, 16, 31, 15.999996, 37.42089, 13, 37, 13, 43, 16, 43, 16, 46, 3, 46, 3, 31, 0, 31, -1, 28, -4, 28)
