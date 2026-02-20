@@ -5,15 +5,30 @@ extends Area2D
 func _ready() -> void:
 	pass # Replace with function body.
 
-
+var stairDn=false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	#print(stairDn," Up")
+	if stairDn==true and Input.is_action_pressed("ui_accept"):
+		Tp(bodyPlayer)
+	pass
+@export var alvo_posicao: Marker2D 
+var bodyPlayer
+func _on_body_entered(body: Node2D):
+	await get_tree().create_timer(0.1).timeout
+	stairDn=true
+	bodyPlayer=body
+	await get_tree().create_timer(2.0).timeout
+	#stairDn=false
+	pass
+			
+#var x
+func  Tp(body):
+	#body.global_position =Vector2(525, 553)
+	body.global_position = alvo_posicao.global_position
+	stairDn=false
 	pass
 
-# Arraste o nó Marker2D do destino para cá
-
-func _on_body_entered(body: Node2D):
-	if body.name == "Player" and Input.is_action_pressed("ui_accept"):
-			#body.global_position =Vector2(525, 553)
-			pass
-			
+func _on_body_exited(body: Node2D):
+	stairDn=false
+	pass

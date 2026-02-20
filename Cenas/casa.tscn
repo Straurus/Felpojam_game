@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://b67fk3a4cwwc3"]
 
-[ext_resource type="Script" uid="uid://0qtr43l78ek7" path="res://Scripts/casa.gd" id="1_vadl2"]
+[ext_resource type="Script" path="res://Scripts/casa.gd" id="1_vadl2"]
 [ext_resource type="Texture2D" uid="uid://hvnu4fbng65b" path="res://Assets/sprites/background/casa/casa.png" id="2_pcnot"]
 [ext_resource type="Script" uid="uid://d2elt8qnuoq4v" path="res://Scripts/escadas_baixo.gd" id="3_08hkd"]
 [ext_resource type="Script" uid="uid://m3wduivvetoe" path="res://Scripts/character_body.gd" id="3_pcnot"]
 [ext_resource type="Texture2D" uid="uid://vmne3cyxm0vp" path="res://Assets/sprites/objects/personagem.png" id="4_nribw"]
 [ext_resource type="Script" uid="uid://lb26j5dgdfv6" path="res://Scripts/escadas_cima.gd" id="4_vf0xb"]
+[ext_resource type="Script" uid="uid://dg0wx0ffo2mti" path="res://Scripts/porta_frente_casa.gd" id="5_gumeh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ic5q"]
 size = Vector2(10.1, 18.2)
@@ -48,150 +49,147 @@ size = Vector2(50.373013, 601.21155)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hekb4"]
 size = Vector2(2052.038, 20)
 
-[node name="House" type="Control" unique_id=1422572515]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -1152.0
-offset_bottom = -648.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="House" type="Node2D" unique_id=1356280683]
 script = ExtResource("1_vadl2")
 
-[node name="casa" type="Node2D" parent="." unique_id=1652313029]
-position = Vector2(-3, 0)
-metadata/_edit_lock_ = true
-
-[node name="house" type="Sprite2D" parent="casa" unique_id=1283066286]
-position = Vector2(579, 326)
+[node name="casa2" type="Sprite2D" parent="." unique_id=1283066286]
+position = Vector2(576, 326)
 scale = Vector2(3.6696918, 3.4252472)
 texture = ExtResource("2_pcnot")
 metadata/_edit_lock_ = true
 
-[node name="escadasBaixo" type="Area2D" parent="casa" unique_id=1907226050]
-position = Vector2(529, 506)
+[node name="escadasBaixo" type="Area2D" parent="." unique_id=1907226050 node_paths=PackedStringArray("alvo_posicao")]
+position = Vector2(526, 506)
 script = ExtResource("3_08hkd")
+alvo_posicao = NodePath("MarkerUp")
 metadata/_edit_lock_ = true
 
-[node name="CollisionStairDn" type="CollisionShape2D" parent="casa/escadasBaixo" unique_id=610381858]
+[node name="CollisionStairDn" type="CollisionShape2D" parent="escadasBaixo" unique_id=610381858]
 scale = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_4ic5q")
 
-[node name="escadasCima" type="Area2D" parent="casa" unique_id=1332904736]
-position = Vector2(527, 279)
+[node name="MarkerUp" type="Marker2D" parent="escadasBaixo" unique_id=1366061006]
+position = Vector2(0, -189)
+
+[node name="escadasCima" type="Area2D" parent="." unique_id=1332904736 node_paths=PackedStringArray("alvo_posicao")]
+position = Vector2(524, 279)
 script = ExtResource("4_vf0xb")
+alvo_posicao = NodePath("MarkerDown")
 metadata/_edit_lock_ = true
 
-[node name="CollisionStairUp" type="CollisionShape2D" parent="casa/escadasCima" unique_id=557416717]
+[node name="CollisionStairUp" type="CollisionShape2D" parent="escadasCima" unique_id=557416717]
 shape = SubResource("RectangleShape2D_v8ver")
 
-[node name="quadroPaiVo" type="Area2D" parent="casa" unique_id=1116476513]
-position = Vector2(928, 260)
+[node name="MarkerDown" type="Marker2D" parent="escadasCima" unique_id=1046926035]
+position = Vector2(0, 251)
+
+[node name="quadroPaiVo" type="Area2D" parent="." unique_id=1116476513]
+position = Vector2(925, 260)
 scale = Vector2(0.57649994, 0.64500004)
 metadata/_edit_lock_ = true
 
-[node name="CollisionPictureDadGrandpa" type="CollisionShape2D" parent="casa/quadroPaiVo" unique_id=938100410]
+[node name="CollisionPictureDadGrandpa" type="CollisionShape2D" parent="quadroPaiVo" unique_id=938100410]
 shape = SubResource("RectangleShape2D_427ab")
 
-[node name="portaFundos" type="Area2D" parent="casa" unique_id=1658240269]
-position = Vector2(104.00001, 526)
+[node name="portaFundos" type="Area2D" parent="." unique_id=1658240269]
+position = Vector2(101.00001, 526)
 scale = Vector2(0.57649994, 0.64500004)
 metadata/_edit_lock_ = true
 
-[node name="CollisionDoorBack" type="CollisionShape2D" parent="casa/portaFundos" unique_id=1156178536]
+[node name="CollisionDoorBack" type="CollisionShape2D" parent="portaFundos" unique_id=1156178536]
 shape = SubResource("RectangleShape2D_2xirv")
 
-[node name="StaticDoorBack" type="StaticBody2D" parent="casa/portaFundos" unique_id=2103080670]
+[node name="StaticDoorBack" type="StaticBody2D" parent="portaFundos" unique_id=2103080670]
 position = Vector2(-24.284485, -1.5503874)
 
-[node name="CollisionShapeDoorBack" type="CollisionShape2D" parent="casa/portaFundos/StaticDoorBack" unique_id=503848795]
+[node name="CollisionShapeDoorBack" type="CollisionShape2D" parent="portaFundos/StaticDoorBack" unique_id=503848795]
 shape = SubResource("WorldBoundaryShape2D_nribw")
 
-[node name="portaFrente" type="Area2D" parent="casa" unique_id=1200289669]
-position = Vector2(1060.9999, 527)
+[node name="portaFrente" type="Area2D" parent="." unique_id=1200289669]
+position = Vector2(1057.9999, 527)
 scale = Vector2(0.57649994, 0.64500004)
+script = ExtResource("5_gumeh")
 metadata/_edit_lock_ = true
 
-[node name="CollisionDoorFront" type="CollisionShape2D" parent="casa/portaFrente" unique_id=868789872]
+[node name="CollisionDoorFront" type="CollisionShape2D" parent="portaFrente" unique_id=868789872]
 shape = SubResource("RectangleShape2D_pnlk0")
 
-[node name="StaticDoorFront" type="StaticBody2D" parent="casa/portaFrente" unique_id=1864027326]
+[node name="StaticDoorFront" type="StaticBody2D" parent="portaFrente" unique_id=1864027326]
 physics_material_override = SubResource("PhysicsMaterial_nribw")
 
-[node name="CollisionShapeDoorFront" type="CollisionShape2D" parent="casa/portaFrente/StaticDoorFront" unique_id=1212964193]
+[node name="CollisionShapeDoorFront" type="CollisionShape2D" parent="portaFrente/StaticDoorFront" unique_id=1212964193]
 position = Vector2(26.019295, -1.5503875)
 shape = SubResource("WorldBoundaryShape2D_08hkd")
 
-[node name="quadroAncestrais" type="Area2D" parent="casa" unique_id=1043756060]
-position = Vector2(849, 487)
+[node name="quadroAncestrais" type="Area2D" parent="." unique_id=1043756060]
+position = Vector2(846, 487)
 scale = Vector2(0.57649994, 0.64500004)
 metadata/_edit_lock_ = true
 
-[node name="CollisionPictureAncestors" type="CollisionShape2D" parent="casa/quadroAncestrais" unique_id=771961399]
+[node name="CollisionPictureAncestors" type="CollisionShape2D" parent="quadroAncestrais" unique_id=771961399]
 position = Vector2(-11.274902, -11.627869)
 shape = SubResource("RectangleShape2D_ld3ao")
 
-[node name="prateleiraConquistas" type="Area2D" parent="casa" unique_id=1751492517]
-position = Vector2(717, 523)
+[node name="prateleiraConquistas" type="Area2D" parent="." unique_id=1751492517]
+position = Vector2(714, 523)
 scale = Vector2(0.57649994, 0.64500004)
 metadata/_edit_lock_ = true
 
-[node name="CollisionAchivements" type="CollisionShape2D" parent="casa/prateleiraConquistas" unique_id=1227562313]
+[node name="CollisionAchivements" type="CollisionShape2D" parent="prateleiraConquistas" unique_id=1227562313]
 shape = SubResource("RectangleShape2D_dw3ss")
 
-[node name="menu" type="Area2D" parent="casa" unique_id=1877855942]
-position = Vector2(990, 330)
+[node name="menu" type="Area2D" parent="." unique_id=1877855942]
+position = Vector2(987, 330)
 scale = Vector2(0.4, 0.456)
 metadata/_edit_lock_ = true
 
-[node name="CollisionPolygonMenu" type="CollisionPolygon2D" parent="casa/menu" unique_id=1000976610]
+[node name="CollisionPolygonMenu" type="CollisionPolygon2D" parent="menu" unique_id=1000976610]
 polygon = PackedVector2Array(-13.876831, -12.403107, -107.5, -13.157898, -102.5, 100.8772, -52.5, 103.07019, -47.5, 37.2807, 50, 35.087708, 57.5, 103.07019, 110, 105.26318, 107.5, -13.157898)
 
-[node name="cama" type="Area2D" parent="casa" unique_id=1334355889]
-position = Vector2(795.50006, 349.50006)
+[node name="cama" type="Area2D" parent="." unique_id=1334355889]
+position = Vector2(792.50006, 349.50006)
 scale = Vector2(0.57649994, 0.64500004)
 metadata/_edit_lock_ = true
 
-[node name="CollisionPolygonBed" type="CollisionPolygon2D" parent="casa/cama" unique_id=1481068553]
+[node name="CollisionPolygonBed" type="CollisionPolygon2D" parent="cama" unique_id=1481068553]
 polygon = PackedVector2Array(-113.61682, 3.8758545, -117.08606, 41.085144, 113.616455, 42.63556, 113.616455, 28.682068, 111.88196, -36.434204, -75.455444, -37.98459, -75.455444, -10.077637)
 
-[node name="cafe" type="Area2D" parent="casa" unique_id=2076757681]
+[node name="cafe" type="Area2D" parent="." unique_id=2076757681]
 visible = false
-position = Vector2(286, 533)
+position = Vector2(283, 533)
 metadata/_edit_lock_ = true
 
-[node name="coador" type="CollisionPolygon2D" parent="casa/cafe" unique_id=1064106064]
+[node name="coador" type="CollisionPolygon2D" parent="cafe" unique_id=1064106064]
 position = Vector2(28, 0)
 polygon = PackedVector2Array(-12, -16, -16, 13, 13, 13, 18, 5, 15, 2, 10, 2, 10, -16, 3, -20, -2, -16)
 
-[node name="chaleira" type="CollisionPolygon2D" parent="casa/cafe" unique_id=343908862]
+[node name="chaleira" type="CollisionPolygon2D" parent="cafe" unique_id=343908862]
 position = Vector2(-36, 1)
 polygon = PackedVector2Array(-13, 11, -14, 3, -12, -4, -14, -15, -10, -22, -5, -25, -1, -25, 2, -21, 3, -17, 5, -11, 8, -8, 11, -13, 11, -17, 15, -18, 19, -17, 19, -15, 15, -14, 14, -8, 16, -4, 16, 1, 12, 2, 11, 10)
 
-[node name="chaoParedes" type="StaticBody2D" parent="casa" unique_id=325778977]
-position = Vector2(578, 383)
+[node name="chaoParedes" type="StaticBody2D" parent="." unique_id=325778977]
+position = Vector2(575, 383)
 scale = Vector2(0.536, 0.47999942)
 physics_material_override = SubResource("PhysicsMaterial_427ab")
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="casa/chaoParedes" unique_id=801778405]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chaoParedes" unique_id=801778405]
 position = Vector2(1.7346191, 1.5503845)
 shape = SubResource("RectangleShape2D_wwc0f")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="casa/chaoParedes" unique_id=2099826199]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="chaoParedes" unique_id=2099826199]
 position = Vector2(3.4691896, 464.05035)
 shape = SubResource("RectangleShape2D_wwc0f")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="casa/chaoParedes" unique_id=1915579248]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="chaoParedes" unique_id=1915579248]
 position = Vector2(901.4874, -142.70874)
 shape = SubResource("RectangleShape2D_uh6m2")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="casa/chaoParedes" unique_id=1464689100]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="chaoParedes" unique_id=1464689100]
 position = Vector2(-887.12714, -152.68909)
 shape = SubResource("RectangleShape2D_uh6m2")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="casa/chaoParedes" unique_id=528390372]
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="chaoParedes" unique_id=528390372]
 position = Vector2(2.6018066, -454.16626)
 shape = SubResource("RectangleShape2D_hekb4")
 
@@ -209,8 +207,8 @@ texture = ExtResource("4_nribw")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player" unique_id=1811753691]
 polygon = PackedVector2Array(-4, 46, -13, 46, -13, 37, -17, 37, -17, 31, -20, 31, -20, 21, -23, 21, -23, 17, -25, 17, -25, 5, -23, 5, -23, -8, -20, -8, -20, -21, -17, -21, -17, -24, -14, -24, -14, -43, -11, -43, -11, -46, -7, -46, -7, -48, 6, -48, 6, -47, 10, -47, 10, -43, 13, -43, 13, -24, 16, -24, 16, -20, 19, -20, 19, -8, 22, -8, 22, 5, 26, 5, 25, 18, 23, 18, 22.1934, 21.226395, 19, 21, 19, 31, 16, 31, 15.999996, 37.42089, 13, 37, 13, 43, 16, 43, 16, 46, 3, 46, 3, 31, 0, 31, -1, 28, -4, 28)
 
-[node name="MarkerCima" type="Marker2D" parent="." unique_id=245589531]
-position = Vector2(525, 349)
-
-[connection signal="body_entered" from="casa/escadasBaixo" to="casa/escadasBaixo" method="_on_body_entered"]
-[connection signal="body_entered" from="casa/escadasCima" to="casa/escadasCima" method="_on_body_entered"]
+[connection signal="body_entered" from="escadasBaixo" to="escadasBaixo" method="_on_body_entered"]
+[connection signal="body_exited" from="escadasBaixo" to="escadasBaixo" method="_on_body_exited"]
+[connection signal="body_entered" from="escadasCima" to="escadasCima" method="_on_body_entered"]
+[connection signal="body_exited" from="escadasCima" to="escadasCima" method="_on_body_exited"]
+[connection signal="body_entered" from="portaFrente" to="portaFrente" method="_on_body_entered"]

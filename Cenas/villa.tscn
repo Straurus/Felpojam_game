@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bhurfaapsfeu" path="res://Assets/image/vila.jpg" id="1_3fvjf"]
 [ext_resource type="Script" uid="uid://d4gexkbthb46v" path="res://Scripts/villa.gd" id="1_wfhka"]
+[ext_resource type="Script" uid="uid://bfb5mp3ugcitb" path="res://Scripts/IrCasa.gd" id="3_hphnx"]
 [ext_resource type="Script" uid="uid://m3wduivvetoe" path="res://Scripts/character_body.gd" id="3_k2dcv"]
 [ext_resource type="Texture2D" uid="uid://vmne3cyxm0vp" path="res://Assets/sprites/objects/personagem.png" id="4_1ytt5"]
 
@@ -41,79 +42,78 @@ size = Vector2(20, 638)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hiww7"]
 size = Vector2(2016, 20)
 
-[node name="Villa" type="Control" unique_id=457872231]
-layout_mode = 3
-anchors_preset = 0
+[node name="Villa" type="Node2D" unique_id=972542492]
+position = Vector2(16, 16)
 script = ExtResource("1_wfhka")
+metadata/_edit_lock_ = true
 
-[node name="Vila" type="Node2D" parent="." unique_id=278849399]
+[node name="vila" type="Sprite2D" parent="." unique_id=304140311]
 position = Vector2(990, 325)
-
-[node name="villa" type="Sprite2D" parent="Vila" unique_id=304140311]
 scale = Vector2(1.520881, 1.361468)
 texture = ExtResource("1_3fvjf")
 metadata/_edit_lock_ = true
 
-[node name="casa" type="Area2D" parent="Vila" unique_id=1745959594]
-position = Vector2(-892.1877, 148.5835)
+[node name="casa" type="Area2D" parent="." unique_id=1745959594]
+position = Vector2(97.81232, 473.5835)
 scale = Vector2(0.79080003, 0.7143889)
+script = ExtResource("3_hphnx")
 
-[node name="CollisionHouse" type="CollisionShape2D" parent="Vila/casa" unique_id=1998772436]
+[node name="CollisionHouse" type="CollisionShape2D" parent="casa" unique_id=1998772436]
 shape = SubResource("RectangleShape2D_j47lh")
 
-[node name="estacaoTrem" type="Area2D" parent="Vila" unique_id=1494682746]
-position = Vector2(816.81226, 114.58353)
+[node name="estacaoTrem" type="Area2D" parent="." unique_id=1494682746]
+position = Vector2(1806.8123, 439.58353)
 scale = Vector2(0.79080003, 0.7143889)
 
-[node name="CollisionTrainstation" type="CollisionShape2D" parent="Vila/estacaoTrem" unique_id=256103985]
+[node name="CollisionTrainstation" type="CollisionShape2D" parent="estacaoTrem" unique_id=256103985]
 shape = SubResource("RectangleShape2D_gebmh")
 
-[node name="lojas" type="Area2D" parent="Vila" unique_id=156546249]
-position = Vector2(468.81226, 155.5835)
+[node name="lojas" type="Area2D" parent="." unique_id=156546249]
+position = Vector2(1458.8123, 480.5835)
 scale = Vector2(0.79080003, 0.7143889)
 
-[node name="CollisionShop" type="CollisionShape2D" parent="Vila/lojas" unique_id=716347184]
+[node name="CollisionShop" type="CollisionShape2D" parent="lojas" unique_id=716347184]
 shape = SubResource("RectangleShape2D_clolh")
 
-[node name="Pessoas" type="Area2D" parent="Vila" unique_id=1940117639]
-position = Vector2(459.8125, 188.5835)
+[node name="Pessoas" type="Area2D" parent="." unique_id=1940117639]
+position = Vector2(1449.8125, 513.5835)
 
-[node name="pessoas" type="NavigationRegion2D" parent="Vila/Pessoas" unique_id=1526557698]
+[node name="pessoas" type="NavigationRegion2D" parent="Pessoas" unique_id=1526557698]
 scale = Vector2(0.79080003, 0.7143889)
 navigation_polygon = SubResource("NavigationPolygon_rwp3g")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Vila/Pessoas" unique_id=649041018]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pessoas" unique_id=649041018]
 position = Vector2(-37.8125, 12.416504)
 shape = SubResource("RectangleShape2D_foybg")
 
-[node name="Cachorro" type="Area2D" parent="Vila" unique_id=1382332864]
-position = Vector2(-265.1875, 196.5835)
+[node name="Cachorro" type="Area2D" parent="." unique_id=1382332864]
+position = Vector2(724.8125, 521.5835)
 scale = Vector2(0.79080003, 0.7143889)
 
-[node name="cachorro" type="NavigationRegion2D" parent="Vila/Cachorro" unique_id=716490897]
+[node name="cachorro" type="NavigationRegion2D" parent="Cachorro" unique_id=716490897]
 navigation_polygon = SubResource("NavigationPolygon_gebmh")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Vila/Cachorro" unique_id=2140176046]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cachorro" unique_id=2140176046]
 position = Vector2(14.147034, 42.576843)
 shape = SubResource("RectangleShape2D_lburt")
 
-[node name="chao" type="StaticBody2D" parent="Vila" unique_id=1681171983]
-position = Vector2(-4, 208)
+[node name="chao" type="StaticBody2D" parent="." unique_id=1681171983]
+position = Vector2(986, 533)
 physics_material_override = SubResource("PhysicsMaterial_j47lh")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Vila/chao" unique_id=1681660314]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chao" unique_id=1681660314]
 position = Vector2(4.25, 3)
 shape = SubResource("RectangleShape2D_rwp3g")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Vila/chao" unique_id=1063090249]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="chao" unique_id=1063090249]
 position = Vector2(1002, -208.5)
 shape = SubResource("RectangleShape2D_rkkrb")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Vila/chao" unique_id=2049278438]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="chao" unique_id=2049278438]
 position = Vector2(-994, -208)
 shape = SubResource("RectangleShape2D_662j6")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Vila/chao" unique_id=1815539330]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="chao" unique_id=1815539330]
 position = Vector2(4, -537)
 shape = SubResource("RectangleShape2D_hiww7")
 
@@ -130,3 +130,8 @@ texture = ExtResource("4_1ytt5")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D" unique_id=613135729]
 polygon = PackedVector2Array(-4, 46, -13, 46, -13, 37, -17, 37, -17, 31, -20, 31, -20, 21, -23, 21, -23, 17, -25, 17, -25, 5, -23, 5, -23, -8, -20, -8, -20, -21, -17, -21, -17, -24, -14, -24, -14, -43, -11, -43, -11, -46, -7, -46, -7, -48, 6, -48, 6, -47, 10, -47, 10, -43, 13, -43, 13, -24, 16, -24, 16, -20, 19, -20, 19, -8, 22, -8, 22, 5, 26, 5, 25, 18, 23, 18, 22.1934, 21.226395, 19, 21, 19, 31, 16, 31, 15.999996, 37.42089, 13, 37, 13, 43, 16, 43, 16, 46, 3, 46, 3, 31, 0, 31, -1, 28, -4, 28)
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=2050867041]
+position = Vector2(1307, 456)
+
+[connection signal="body_entered" from="casa" to="casa" method="_on_body_entered"]
