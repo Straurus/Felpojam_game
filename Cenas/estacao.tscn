@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cjmpbnpg3pyvg" path="res://Scripts/estacao.gd" id="1_mwadk"]
 [ext_resource type="Texture2D" uid="uid://b00aey4nncg1r" path="res://Assets/image/estacao.jpg" id="1_ual76"]
+[ext_resource type="Script" uid="uid://bm8gt70hd0f5w" path="res://Scripts/saida_estacao_trem.gd" id="3_4orfl"]
+[ext_resource type="Script" path="res://Scripts/pontoTrabalho.gd" id="3_q4kei"]
 [ext_resource type="Script" uid="uid://m3wduivvetoe" path="res://Scripts/character_body.gd" id="3_r26kg"]
 [ext_resource type="Texture2D" uid="uid://vmne3cyxm0vp" path="res://Assets/sprites/objects/personagem.png" id="4_v4gnm"]
 
@@ -9,7 +11,7 @@
 size = Vector2(86, 90)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_itlwe"]
-size = Vector2(102, 53)
+size = Vector2(33, 156.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p5fos"]
 size = Vector2(136, 162)
@@ -29,8 +31,9 @@ size = Vector2(25, 647)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kpsxp"]
 size = Vector2(1183, 20)
 
-[node name="Station" type="Node2D" unique_id=2001658841]
+[node name="Station" type="Node2D" unique_id=2001658841 node_paths=PackedStringArray("body")]
 script = ExtResource("1_mwadk")
+body = NodePath("Player")
 
 [node name="estacao2" type="Sprite2D" parent="." unique_id=1740087677]
 position = Vector2(577, 323)
@@ -40,16 +43,17 @@ metadata/_edit_lock_ = true
 
 [node name="pontotrabalho" type="Area2D" parent="." unique_id=360122048]
 position = Vector2(811, 505)
+script = ExtResource("3_q4kei")
 
 [node name="CollisionWorkPoint" type="CollisionShape2D" parent="pontotrabalho" unique_id=2076023579]
 position = Vector2(1, 8)
 shape = SubResource("RectangleShape2D_8mt8x")
 
 [node name="saida" type="Area2D" parent="." unique_id=1050216385]
-position = Vector2(96, 426)
+position = Vector2(19, 476)
+script = ExtResource("3_4orfl")
 
 [node name="CollisionShapeExit" type="CollisionShape2D" parent="saida" unique_id=1621997418]
-position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_itlwe")
 
 [node name="bancaJornal" type="Area2D" parent="." unique_id=33880380]
@@ -78,15 +82,20 @@ shape = SubResource("RectangleShape2D_7rry3")
 position = Vector2(3.5, -585)
 shape = SubResource("RectangleShape2D_kpsxp")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=66660534]
+[node name="Player" type="CharacterBody2D" parent="." unique_id=66660534]
 position = Vector2(575, 503)
 script = ExtResource("3_r26kg")
 
-[node name="Personagem" type="Sprite2D" parent="CharacterBody2D" unique_id=1581201515]
+[node name="Personagem" type="Sprite2D" parent="Player" unique_id=1581201515]
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("4_v4gnm")
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=333348574]
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=333348574]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D" unique_id=307867283]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player" unique_id=307867283]
 polygon = PackedVector2Array(-4, 46, -13, 46, -13, 37, -17, 37, -17, 31, -20, 31, -20, 21, -23, 21, -23, 17, -25, 17, -25, 5, -23, 5, -23, -8, -20, -8, -20, -21, -17, -21, -17, -24, -14, -24, -14, -43, -11, -43, -11, -46, -7, -46, -7, -48, 6, -48, 6, -47, 10, -47, 10, -43, 13, -43, 13, -24, 16, -24, 16, -20, 19, -20, 19, -8, 22, -8, 22, 5, 26, 5, 25, 18, 23, 18, 22.1934, 21.226395, 19, 21, 19, 31, 16, 31, 15.999996, 37.42089, 13, 37, 13, 43, 16, 43, 16, 46, 3, 46, 3, 31, 0, 31, -1, 28, -4, 28)
+
+[connection signal="body_entered" from="pontotrabalho" to="pontotrabalho" method="_on_body_entered"]
+[connection signal="body_exited" from="pontotrabalho" to="pontotrabalho" method="_on_body_exited"]
+[connection signal="body_entered" from="saida" to="saida" method="_on_body_entered"]
+[connection signal="body_exited" from="saida" to="saida" method="_on_body_exited"]

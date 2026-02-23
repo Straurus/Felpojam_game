@@ -24,7 +24,6 @@ func _on_body_entered(body: Node2D):
 			
 #var x
 func  Tp(body):
-	#body.global_position =Vector2(525, 553)
 	body.global_position = alvo_posicao.global_position
 	stairDn=false
 	pass

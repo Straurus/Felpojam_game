@@ -3,7 +3,10 @@
 [ext_resource type="Script" uid="uid://cdxcvs54ig0td" path="res://Scripts/oficina.gd" id="1_j5mca"]
 [ext_resource type="Texture2D" uid="uid://dd82g7c4iepfq" path="res://Assets/sprites/background/oficina.png" id="1_kj8qt"]
 [ext_resource type="Script" uid="uid://m3wduivvetoe" path="res://Scripts/character_body.gd" id="3_6ji2t"]
+[ext_resource type="Script" uid="uid://bmy45lli0rvho" path="res://Scripts/escadas_baixo_oficina.gd" id="3_c5t7u"]
 [ext_resource type="Texture2D" uid="uid://vmne3cyxm0vp" path="res://Assets/sprites/objects/personagem.png" id="4_22pew"]
+[ext_resource type="Script" uid="uid://c7lmiojt0ur8g" path="res://Scripts/escadas_cima_oficina.gd" id="4_dav2j"]
+[ext_resource type="Script" uid="uid://bvnvcc32rvysu" path="res://Scripts/porta_frente_oficina.gd" id="5_n3bbb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qo6bi"]
 size = Vector2(10.1, 18.2)
@@ -35,33 +38,45 @@ size = Vector2(48.50757, 826.01843)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kcccv"]
 size = Vector2(2052.038, 20)
 
-[node name="workshop" type="Node2D" unique_id=1997754438]
+[node name="workshop" type="Node2D" unique_id=1997754438 node_paths=PackedStringArray("body")]
 script = ExtResource("1_j5mca")
+body = NodePath("Player")
 
-[node name="oficina2" type="Sprite2D" parent="." unique_id=90871443]
+[node name="oficina" type="Sprite2D" parent="." unique_id=90871443]
 position = Vector2(592.00006, 334)
 scale = Vector2(0.43464962, 0.40668374)
 texture = ExtResource("1_kj8qt")
 metadata/_edit_lock_ = true
 
-[node name="escadasBaixo" type="Area2D" parent="." unique_id=2143835853]
+[node name="escadasBaixo" type="Area2D" parent="." unique_id=2143835853 node_paths=PackedStringArray("alvo_posicao")]
 position = Vector2(987, 502)
+script = ExtResource("3_c5t7u")
+alvo_posicao = NodePath("MarkerUp")
 metadata/_edit_lock_ = true
 
 [node name="CollisionStairDn" type="CollisionShape2D" parent="escadasBaixo" unique_id=1975586230]
 scale = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_qo6bi")
 
-[node name="escadasCima" type="Area2D" parent="." unique_id=1189821067]
+[node name="MarkerUp" type="Marker2D" parent="escadasBaixo" unique_id=1716650969]
+position = Vector2(-4, -158)
+
+[node name="escadasCima" type="Area2D" parent="." unique_id=1189821067 node_paths=PackedStringArray("alvo_posicao")]
 position = Vector2(986, 289)
+script = ExtResource("4_dav2j")
+alvo_posicao = NodePath("MarkerDn")
 metadata/_edit_lock_ = true
 
 [node name="CollisionStairUp" type="CollisionShape2D" parent="escadasCima" unique_id=493125419]
 shape = SubResource("RectangleShape2D_ajbn3")
 
+[node name="MarkerDn" type="Marker2D" parent="escadasCima" unique_id=571288908]
+position = Vector2(0, 261)
+
 [node name="portaFrente" type="Area2D" parent="." unique_id=266227377]
 position = Vector2(144, 525)
 scale = Vector2(0.57649994, 0.64500004)
+script = ExtResource("5_n3bbb")
 metadata/_edit_lock_ = true
 
 [node name="CollisionDoorfront" type="CollisionShape2D" parent="portaFrente" unique_id=774335595]
@@ -149,16 +164,23 @@ shape = SubResource("RectangleShape2D_du2fo")
 position = Vector2(1.8656273, -408.33374)
 shape = SubResource("RectangleShape2D_kcccv")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1151502973]
-position = Vector2(577, 516)
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1151502973]
+position = Vector2(195, 545)
 script = ExtResource("3_6ji2t")
 metadata/_edit_lock_ = true
 
-[node name="Personagem" type="Sprite2D" parent="CharacterBody2D" unique_id=1228373286]
+[node name="Personagem" type="Sprite2D" parent="Player" unique_id=1228373286]
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("4_22pew")
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1256432293]
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1256432293]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D" unique_id=1760938738]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player" unique_id=1760938738]
 polygon = PackedVector2Array(-4, 46, -13, 46, -13, 37, -17, 37, -17, 31, -20, 31, -20, 21, -23, 21, -23, 17, -25, 17, -25, 5, -23, 5, -23, -8, -20, -8, -20, -21, -17, -21, -17, -24, -14, -24, -14, -43, -11, -43, -11, -46, -7, -46, -7, -48, 6, -48, 6, -47, 10, -47, 10, -43, 13, -43, 13, -24, 16, -24, 16, -20, 19, -20, 19, -8, 22, -8, 22, 5, 26, 5, 25, 18, 23, 18, 22.1934, 21.226395, 19, 21, 19, 31, 16, 31, 15.999996, 37.42089, 13, 37, 13, 43, 16, 43, 16, 46, 3, 46, 3, 31, 0, 31, -1, 28, -4, 28)
+
+[connection signal="body_entered" from="escadasBaixo" to="escadasBaixo" method="_on_body_entered"]
+[connection signal="body_exited" from="escadasBaixo" to="escadasBaixo" method="_on_body_exited"]
+[connection signal="body_entered" from="escadasCima" to="escadasCima" method="_on_body_entered"]
+[connection signal="body_exited" from="escadasCima" to="escadasCima" method="_on_body_exited"]
+[connection signal="body_entered" from="portaFrente" to="portaFrente" method="_on_body_entered"]
+[connection signal="body_exited" from="portaFrente" to="portaFrente" method="_on_body_exited"]

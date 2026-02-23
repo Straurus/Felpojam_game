@@ -1,5 +1,6 @@
 extends Node2D
 @export var body:CharacterBody2D
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	check_posicao(body)
@@ -9,12 +10,17 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-#var last:int
-
 
 func check_posicao(body):
 	if Global.last==0:
-		#casa
-		body.global_position =Vector2(193,546)
+		#cama
+		body.global_position =Vector2(710,323)
 		#Global.last=0
-	
+	if Global.last==1:
+		#porta frente
+		body.global_position =Vector2(1012,530)
+		#Global.last=1
+	if Global.last==2:
+		#porta tras
+		body.global_position =Vector2(149,530)
+		#Global.last=2

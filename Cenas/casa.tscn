@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://b67fk3a4cwwc3"]
 
-[ext_resource type="Script" path="res://Scripts/casa.gd" id="1_vadl2"]
+[ext_resource type="Script" uid="uid://cvro2h07yevv" path="res://Scripts/casa.gd" id="1_vadl2"]
 [ext_resource type="Texture2D" uid="uid://hvnu4fbng65b" path="res://Assets/sprites/background/casa/casa.png" id="2_pcnot"]
 [ext_resource type="Script" uid="uid://d2elt8qnuoq4v" path="res://Scripts/escadas_baixo.gd" id="3_08hkd"]
 [ext_resource type="Script" uid="uid://m3wduivvetoe" path="res://Scripts/character_body.gd" id="3_pcnot"]
 [ext_resource type="Texture2D" uid="uid://vmne3cyxm0vp" path="res://Assets/sprites/objects/personagem.png" id="4_nribw"]
 [ext_resource type="Script" uid="uid://lb26j5dgdfv6" path="res://Scripts/escadas_cima.gd" id="4_vf0xb"]
+[ext_resource type="Script" uid="uid://da85ug1oe31or" path="res://Scripts/porta_fundos_casa.gd" id="5_g5b23"]
 [ext_resource type="Script" uid="uid://dg0wx0ffo2mti" path="res://Scripts/porta_frente_casa.gd" id="5_gumeh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ic5q"]
@@ -24,7 +25,7 @@ size = Vector2(41.63053, 218.60449)
 normal = Vector2(1, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pnlk0"]
-size = Vector2(41.63025, 214.72867)
+size = Vector2(41.63025, 211.24031)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nribw"]
 
@@ -49,8 +50,9 @@ size = Vector2(50.373013, 601.21155)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hekb4"]
 size = Vector2(2052.038, 20)
 
-[node name="House" type="Node2D" unique_id=1356280683]
+[node name="House" type="Node2D" unique_id=1356280683 node_paths=PackedStringArray("body")]
 script = ExtResource("1_vadl2")
+body = NodePath("Player")
 
 [node name="casa2" type="Sprite2D" parent="." unique_id=1283066286]
 position = Vector2(576, 326)
@@ -94,6 +96,7 @@ shape = SubResource("RectangleShape2D_427ab")
 [node name="portaFundos" type="Area2D" parent="." unique_id=1658240269]
 position = Vector2(101.00001, 526)
 scale = Vector2(0.57649994, 0.64500004)
+script = ExtResource("5_g5b23")
 metadata/_edit_lock_ = true
 
 [node name="CollisionDoorBack" type="CollisionShape2D" parent="portaFundos" unique_id=1156178536]
@@ -112,6 +115,7 @@ script = ExtResource("5_gumeh")
 metadata/_edit_lock_ = true
 
 [node name="CollisionDoorFront" type="CollisionShape2D" parent="portaFrente" unique_id=868789872]
+position = Vector2(0, 1.7442017)
 shape = SubResource("RectangleShape2D_pnlk0")
 
 [node name="StaticDoorFront" type="StaticBody2D" parent="portaFrente" unique_id=1864027326]
@@ -194,15 +198,15 @@ position = Vector2(2.6018066, -454.16626)
 shape = SubResource("RectangleShape2D_hekb4")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1964378249]
-position = Vector2(325, 524)
+position = Vector2(709, 325)
 script = ExtResource("3_pcnot")
-metadata/_edit_lock_ = true
 
 [node name="Personagem" type="Sprite2D" parent="Player" unique_id=1745305903]
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("4_nribw")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1775826972]
+position_smoothing_enabled = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player" unique_id=1811753691]
 polygon = PackedVector2Array(-4, 46, -13, 46, -13, 37, -17, 37, -17, 31, -20, 31, -20, 21, -23, 21, -23, 17, -25, 17, -25, 5, -23, 5, -23, -8, -20, -8, -20, -21, -17, -21, -17, -24, -14, -24, -14, -43, -11, -43, -11, -46, -7, -46, -7, -48, 6, -48, 6, -47, 10, -47, 10, -43, 13, -43, 13, -24, 16, -24, 16, -20, 19, -20, 19, -8, 22, -8, 22, 5, 26, 5, 25, 18, 23, 18, 22.1934, 21.226395, 19, 21, 19, 31, 16, 31, 15.999996, 37.42089, 13, 37, 13, 43, 16, 43, 16, 46, 3, 46, 3, 31, 0, 31, -1, 28, -4, 28)
@@ -211,4 +215,7 @@ polygon = PackedVector2Array(-4, 46, -13, 46, -13, 37, -17, 37, -17, 31, -20, 31
 [connection signal="body_exited" from="escadasBaixo" to="escadasBaixo" method="_on_body_exited"]
 [connection signal="body_entered" from="escadasCima" to="escadasCima" method="_on_body_entered"]
 [connection signal="body_exited" from="escadasCima" to="escadasCima" method="_on_body_exited"]
+[connection signal="body_entered" from="portaFundos" to="portaFundos" method="_on_body_entered"]
+[connection signal="body_exited" from="portaFundos" to="portaFundos" method="_on_body_exited"]
 [connection signal="body_entered" from="portaFrente" to="portaFrente" method="_on_body_entered"]
+[connection signal="body_exited" from="portaFrente" to="portaFrente" method="_on_body_exited"]

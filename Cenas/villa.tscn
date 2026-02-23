@@ -5,12 +5,14 @@
 [ext_resource type="Script" uid="uid://bfb5mp3ugcitb" path="res://Scripts/IrCasa.gd" id="3_hphnx"]
 [ext_resource type="Script" uid="uid://m3wduivvetoe" path="res://Scripts/character_body.gd" id="3_k2dcv"]
 [ext_resource type="Texture2D" uid="uid://vmne3cyxm0vp" path="res://Assets/sprites/objects/personagem.png" id="4_1ytt5"]
+[ext_resource type="Script" uid="uid://dhdt408lrb2op" path="res://Scripts/ir_estacao_trem.gd" id="4_u1ssj"]
+[ext_resource type="Script" uid="uid://b72ob0mkefjk4" path="res://Scripts/ir_lojas.gd" id="5_ebkuo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j47lh"]
 size = Vector2(241.52757, 137.18011)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gebmh"]
-size = Vector2(436.26697, 230.96667)
+size = Vector2(433.3432, 230.96667)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_clolh"]
 size = Vector2(331.30988, 110.584015)
@@ -42,9 +44,9 @@ size = Vector2(20, 638)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hiww7"]
 size = Vector2(2016, 20)
 
-[node name="Villa" type="Node2D" unique_id=972542492]
-position = Vector2(16, 16)
+[node name="Villa" type="Node2D" unique_id=972542492 node_paths=PackedStringArray("body")]
 script = ExtResource("1_wfhka")
+body = NodePath("Player")
 metadata/_edit_lock_ = true
 
 [node name="vila" type="Sprite2D" parent="." unique_id=304140311]
@@ -64,19 +66,24 @@ shape = SubResource("RectangleShape2D_j47lh")
 [node name="estacaoTrem" type="Area2D" parent="." unique_id=1494682746]
 position = Vector2(1806.8123, 439.58353)
 scale = Vector2(0.79080003, 0.7143889)
+script = ExtResource("4_u1ssj")
 
 [node name="CollisionTrainstation" type="CollisionShape2D" parent="estacaoTrem" unique_id=256103985]
+position = Vector2(-1.4616699, 0)
 shape = SubResource("RectangleShape2D_gebmh")
 
 [node name="lojas" type="Area2D" parent="." unique_id=156546249]
 position = Vector2(1458.8123, 480.5835)
 scale = Vector2(0.79080003, 0.7143889)
+script = ExtResource("5_ebkuo")
 
 [node name="CollisionShop" type="CollisionShape2D" parent="lojas" unique_id=716347184]
 shape = SubResource("RectangleShape2D_clolh")
 
 [node name="Pessoas" type="Area2D" parent="." unique_id=1940117639]
 position = Vector2(1449.8125, 513.5835)
+monitoring = false
+monitorable = false
 
 [node name="pessoas" type="NavigationRegion2D" parent="Pessoas" unique_id=1526557698]
 scale = Vector2(0.79080003, 0.7143889)
@@ -85,10 +92,13 @@ navigation_polygon = SubResource("NavigationPolygon_rwp3g")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pessoas" unique_id=649041018]
 position = Vector2(-37.8125, 12.416504)
 shape = SubResource("RectangleShape2D_foybg")
+disabled = true
 
 [node name="Cachorro" type="Area2D" parent="." unique_id=1382332864]
 position = Vector2(724.8125, 521.5835)
 scale = Vector2(0.79080003, 0.7143889)
+monitoring = false
+monitorable = false
 
 [node name="cachorro" type="NavigationRegion2D" parent="Cachorro" unique_id=716490897]
 navigation_polygon = SubResource("NavigationPolygon_gebmh")
@@ -96,6 +106,7 @@ navigation_polygon = SubResource("NavigationPolygon_gebmh")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cachorro" unique_id=2140176046]
 position = Vector2(14.147034, 42.576843)
 shape = SubResource("RectangleShape2D_lburt")
+disabled = true
 
 [node name="chao" type="StaticBody2D" parent="." unique_id=1681171983]
 position = Vector2(986, 533)
@@ -117,21 +128,25 @@ shape = SubResource("RectangleShape2D_662j6")
 position = Vector2(4, -537)
 shape = SubResource("RectangleShape2D_hiww7")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=660830839]
-position = Vector2(575, 312)
+[node name="Player" type="CharacterBody2D" parent="." unique_id=660830839]
+position = Vector2(256, 468)
 script = ExtResource("3_k2dcv")
-metadata/_edit_lock_ = true
 
-[node name="Personagem" type="Sprite2D" parent="CharacterBody2D" unique_id=900044119]
+[node name="Personagem" type="Sprite2D" parent="Player" unique_id=900044119]
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("4_1ytt5")
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1070671995]
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1070671995]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D" unique_id=613135729]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player" unique_id=613135729]
 polygon = PackedVector2Array(-4, 46, -13, 46, -13, 37, -17, 37, -17, 31, -20, 31, -20, 21, -23, 21, -23, 17, -25, 17, -25, 5, -23, 5, -23, -8, -20, -8, -20, -21, -17, -21, -17, -24, -14, -24, -14, -43, -11, -43, -11, -46, -7, -46, -7, -48, 6, -48, 6, -47, 10, -47, 10, -43, 13, -43, 13, -24, 16, -24, 16, -20, 19, -20, 19, -8, 22, -8, 22, 5, 26, 5, 25, 18, 23, 18, 22.1934, 21.226395, 19, 21, 19, 31, 16, 31, 15.999996, 37.42089, 13, 37, 13, 43, 16, 43, 16, 46, 3, 46, 3, 31, 0, 31, -1, 28, -4, 28)
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=2050867041]
 position = Vector2(1307, 456)
 
 [connection signal="body_entered" from="casa" to="casa" method="_on_body_entered"]
+[connection signal="body_exited" from="casa" to="casa" method="_on_body_exited"]
+[connection signal="body_entered" from="estacaoTrem" to="estacaoTrem" method="_on_body_entered"]
+[connection signal="body_exited" from="estacaoTrem" to="estacaoTrem" method="_on_body_exited"]
+[connection signal="body_entered" from="lojas" to="lojas" method="_on_body_entered"]
+[connection signal="body_exited" from="lojas" to="lojas" method="_on_body_exited"]
