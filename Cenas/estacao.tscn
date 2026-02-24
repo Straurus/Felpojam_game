@@ -3,9 +3,10 @@
 [ext_resource type="Script" uid="uid://cjmpbnpg3pyvg" path="res://Scripts/estacao.gd" id="1_mwadk"]
 [ext_resource type="Texture2D" uid="uid://b00aey4nncg1r" path="res://Assets/image/estacao.jpg" id="1_ual76"]
 [ext_resource type="Script" uid="uid://bm8gt70hd0f5w" path="res://Scripts/saida_estacao_trem.gd" id="3_4orfl"]
-[ext_resource type="Script" path="res://Scripts/pontoTrabalho.gd" id="3_q4kei"]
+[ext_resource type="Script" uid="uid://cknt2kfh6tkpw" path="res://Scripts/pontoTrabalho.gd" id="3_q4kei"]
 [ext_resource type="Script" uid="uid://m3wduivvetoe" path="res://Scripts/character_body.gd" id="3_r26kg"]
 [ext_resource type="Texture2D" uid="uid://vmne3cyxm0vp" path="res://Assets/sprites/objects/personagem.png" id="4_v4gnm"]
+[ext_resource type="AudioStream" uid="uid://bbmpoxopugn0n" path="res://Assets/Music/Lovely town.ogg" id="7_486ma"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8mt8x"]
 size = Vector2(86, 90)
@@ -94,6 +95,11 @@ texture = ExtResource("4_v4gnm")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player" unique_id=307867283]
 polygon = PackedVector2Array(-4, 46, -13, 46, -13, 37, -17, 37, -17, 31, -20, 31, -20, 21, -23, 21, -23, 17, -25, 17, -25, 5, -23, 5, -23, -8, -20, -8, -20, -21, -17, -21, -17, -24, -14, -24, -14, -43, -11, -43, -11, -46, -7, -46, -7, -48, 6, -48, 6, -47, 10, -47, 10, -43, 13, -43, 13, -24, 16, -24, 16, -20, 19, -20, 19, -8, 22, -8, 22, 5, 26, 5, 25, 18, 23, 18, 22.1934, 21.226395, 19, 21, 19, 31, 16, 31, 15.999996, 37.42089, 13, 37, 13, 43, 16, 43, 16, 46, 3, 46, 3, 31, 0, 31, -1, 28, -4, 28)
+
+[node name="Music" type="Node" parent="." unique_id=1426477126]
+
+[node name="LovelyTown" type="AudioStreamPlayer" parent="Music" unique_id=1049505496]
+stream = ExtResource("7_486ma")
 
 [connection signal="body_entered" from="pontotrabalho" to="pontotrabalho" method="_on_body_entered"]
 [connection signal="body_exited" from="pontotrabalho" to="pontotrabalho" method="_on_body_exited"]

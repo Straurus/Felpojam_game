@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://r3ad4vu1cipa" path="res://Scripts/trem.gd" id="1_67l53"]
 [ext_resource type="Script" uid="uid://m3wduivvetoe" path="res://Scripts/character_body.gd" id="2_mqj3t"]
 [ext_resource type="Texture2D" uid="uid://vmne3cyxm0vp" path="res://Assets/sprites/objects/personagem.png" id="3_jwh6s"]
+[ext_resource type="AudioStream" uid="uid://bbmpoxopugn0n" path="res://Assets/Music/Lovely town.ogg" id="4_8gaqo"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_y0sxj"]
 rough = true
@@ -58,3 +59,8 @@ shape = SubResource("RectangleShape2D_2mjyl")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="chao" unique_id=981271827]
 position = Vector2(3.5, -585)
 shape = SubResource("RectangleShape2D_f4bsu")
+
+[node name="Music" type="Node" parent="." unique_id=1214053714]
+
+[node name="LovelyTown" type="AudioStreamPlayer" parent="Music" unique_id=1751100466]
+stream = ExtResource("4_8gaqo")

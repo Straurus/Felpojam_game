@@ -24,7 +24,7 @@ func _on_body_entered(body: Node2D):
 	c=false
 
 func  Tp(body):
-	Global.last=0
+	Global.last=2
 	get_tree().change_scene_to_file("res://Cenas/villa.tscn")
 	c=false
 	pass

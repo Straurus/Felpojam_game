@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://vmne3cyxm0vp" path="res://Assets/sprites/objects/personagem.png" id="4_22pew"]
 [ext_resource type="Script" uid="uid://c7lmiojt0ur8g" path="res://Scripts/escadas_cima_oficina.gd" id="4_dav2j"]
 [ext_resource type="Script" uid="uid://bvnvcc32rvysu" path="res://Scripts/porta_frente_oficina.gd" id="5_n3bbb"]
+[ext_resource type="AudioStream" uid="uid://bbmpoxopugn0n" path="res://Assets/Music/Lovely town.ogg" id="8_dav2j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qo6bi"]
 size = Vector2(10.1, 18.2)
@@ -177,6 +178,11 @@ texture = ExtResource("4_22pew")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player" unique_id=1760938738]
 polygon = PackedVector2Array(-4, 46, -13, 46, -13, 37, -17, 37, -17, 31, -20, 31, -20, 21, -23, 21, -23, 17, -25, 17, -25, 5, -23, 5, -23, -8, -20, -8, -20, -21, -17, -21, -17, -24, -14, -24, -14, -43, -11, -43, -11, -46, -7, -46, -7, -48, 6, -48, 6, -47, 10, -47, 10, -43, 13, -43, 13, -24, 16, -24, 16, -20, 19, -20, 19, -8, 22, -8, 22, 5, 26, 5, 25, 18, 23, 18, 22.1934, 21.226395, 19, 21, 19, 31, 16, 31, 15.999996, 37.42089, 13, 37, 13, 43, 16, 43, 16, 46, 3, 46, 3, 31, 0, 31, -1, 28, -4, 28)
+
+[node name="Music" type="Node" parent="." unique_id=132864776]
+
+[node name="LovelyTown" type="AudioStreamPlayer" parent="Music" unique_id=37090906]
+stream = ExtResource("8_dav2j")
 
 [connection signal="body_entered" from="escadasBaixo" to="escadasBaixo" method="_on_body_entered"]
 [connection signal="body_exited" from="escadasBaixo" to="escadasBaixo" method="_on_body_exited"]

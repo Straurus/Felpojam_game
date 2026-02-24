@@ -2,6 +2,7 @@ extends Node2D
 @export var body:CharacterBody2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	playMusic()
 	check_posicao(body)
 	pass # Replace with function body.
 
@@ -18,3 +19,9 @@ func check_posicao(body):
 		body.global_position =Vector2(193,546)
 		#Global.last=0
 	
+
+func playMusic():
+	if Global.song==true:
+		$Music/LovelyTown.play()
+	elif Global.song==false:
+		$Music/LovelyTown.stop()

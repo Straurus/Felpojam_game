@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://lb26j5dgdfv6" path="res://Scripts/escadas_cima.gd" id="4_vf0xb"]
 [ext_resource type="Script" uid="uid://da85ug1oe31or" path="res://Scripts/porta_fundos_casa.gd" id="5_g5b23"]
 [ext_resource type="Script" uid="uid://dg0wx0ffo2mti" path="res://Scripts/porta_frente_casa.gd" id="5_gumeh"]
+[ext_resource type="AudioStream" uid="uid://bbmpoxopugn0n" path="res://Assets/Music/Lovely town.ogg" id="9_636cy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ic5q"]
 size = Vector2(10.1, 18.2)
@@ -210,6 +211,11 @@ position_smoothing_enabled = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player" unique_id=1811753691]
 polygon = PackedVector2Array(-4, 46, -13, 46, -13, 37, -17, 37, -17, 31, -20, 31, -20, 21, -23, 21, -23, 17, -25, 17, -25, 5, -23, 5, -23, -8, -20, -8, -20, -21, -17, -21, -17, -24, -14, -24, -14, -43, -11, -43, -11, -46, -7, -46, -7, -48, 6, -48, 6, -47, 10, -47, 10, -43, 13, -43, 13, -24, 16, -24, 16, -20, 19, -20, 19, -8, 22, -8, 22, 5, 26, 5, 25, 18, 23, 18, 22.1934, 21.226395, 19, 21, 19, 31, 16, 31, 15.999996, 37.42089, 13, 37, 13, 43, 16, 43, 16, 46, 3, 46, 3, 31, 0, 31, -1, 28, -4, 28)
+
+[node name="Music" type="Node" parent="." unique_id=789227877]
+
+[node name="LovelyTown" type="AudioStreamPlayer" parent="Music" unique_id=733064331]
+stream = ExtResource("9_636cy")
 
 [connection signal="body_entered" from="escadasBaixo" to="escadasBaixo" method="_on_body_entered"]
 [connection signal="body_exited" from="escadasBaixo" to="escadasBaixo" method="_on_body_exited"]

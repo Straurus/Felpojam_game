@@ -4,8 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://dbht6f5m6ftxb" path="res://Assets/image/passaport_null.png" id="1_klpcg"]
 [ext_resource type="Texture2D" uid="uid://d4lpfkcj1ule8" path="res://Assets/image/aprovado.png" id="2_c6fx7"]
 [ext_resource type="Texture2D" uid="uid://dod6l8702rhs5" path="res://Assets/image/negado.png" id="3_dt70l"]
-[ext_resource type="Script" path="res://Scripts/button.gd" id="4_c6fx7"]
 [ext_resource type="Script" uid="uid://bh48rn7gd3ea7" path="res://Scripts/passaport/cabelo.gd" id="5_vqf7j"]
+[ext_resource type="Script" uid="uid://cbsos0yxoexau" path="res://Scripts/button_cartao.gd" id="6_vqf7j"]
+[ext_resource type="AudioStream" uid="uid://bbmpoxopugn0n" path="res://Assets/Music/Lovely town.ogg" id="7_6y4y0"]
 
 [node name="CartaoEmbarque" type="Control" unique_id=376260999]
 layout_mode = 3
@@ -177,6 +178,11 @@ offset_right = 1145.0
 offset_bottom = 647.0
 theme_override_colors/font_color = Color(0.99607843, 0.21960784, 0.40392157, 1)
 text = "proximo"
-script = ExtResource("4_c6fx7")
+script = ExtResource("6_vqf7j")
+
+[node name="Music" type="Node" parent="." unique_id=1899839921]
+
+[node name="LovelyTown" type="AudioStreamPlayer" parent="Music" unique_id=745810798]
+stream = ExtResource("7_6y4y0")
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

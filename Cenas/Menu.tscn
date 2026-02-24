@@ -1,0 +1,148 @@
+[gd_scene format=3 uid="uid://bfr3srq8hdcak"]
+
+[ext_resource type="Script" uid="uid://gnjipyafrtan" path="res://Scripts/Menu.gd" id="1_xit3w"]
+[ext_resource type="Texture2D" uid="uid://blua6des4a6bp" path="res://Assets/texture/botao/button.png" id="2_suxtg"]
+[ext_resource type="Texture2D" uid="uid://bnb151dpduood" path="res://Assets/image/Sprite-3.png" id="2_u7eip"]
+[ext_resource type="AudioStream" uid="uid://bbmpoxopugn0n" path="res://Assets/Music/Lovely town.ogg" id="4_qif5a"]
+
+[sub_resource type="StyleBoxTexture" id="1"]
+texture = ExtResource("2_u7eip")
+region_rect = Rect2(0, 0, 800, 600)
+
+[sub_resource type="StyleBoxTexture" id="2"]
+region_rect = Rect2(0, 0, 365, 107)
+
+[node name="Menu" type="Control" unique_id=1861196408]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.01022
+offset_top = 1.44333
+offset_right = -1.01025
+offset_bottom = 1.4433
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(-155.176, 169)
+script = ExtResource("1_xit3w")
+
+[node name="Panel" type="Panel" parent="." unique_id=2059621766]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_styles/panel = SubResource("1")
+
+[node name="Panel2" type="Panel" parent="Panel" unique_id=398925144]
+layout_mode = 0
+anchor_left = 0.441
+anchor_top = 0.04
+anchor_right = 0.548
+anchor_bottom = 0.194
+offset_left = -1.58398
+offset_right = 0.848083
+offset_bottom = 1.6
+theme_override_styles/panel = SubResource("2")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=144818685]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer" unique_id=1239363147]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/GridContainer" unique_id=807402225]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/GridContainer" unique_id=1846900413]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Ticket Please"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="CenterContainer/GridContainer" unique_id=1913715181]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "by Straurus' Game Studio & Cia."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="CenterContainer/GridContainer" unique_id=971885803]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CenterContainer/GridContainer" unique_id=1847632854]
+layout_mode = 2
+action_mode = 0
+icon = ExtResource("2_suxtg")
+flat = true
+
+[node name="Label" type="Label" parent="CenterContainer/GridContainer/Button" unique_id=831769784]
+layout_mode = 0
+anchor_right = 0.972
+anchor_bottom = 1.0
+offset_left = 6.2063
+offset_top = 3.7937
+offset_right = -0.309723
+offset_bottom = -4.2063
+text = "Jogar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button2" type="Button" parent="CenterContainer/GridContainer" unique_id=280299502]
+layout_mode = 2
+action_mode = 0
+icon = ExtResource("2_suxtg")
+flat = true
+
+[node name="Label" type="Label" parent="CenterContainer/GridContainer/Button2" unique_id=1719315854]
+layout_mode = 0
+anchor_right = 0.972
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 4.41422
+offset_right = 0.483978
+offset_bottom = -3.58578
+text = "Instruções"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button3" type="Button" parent="CenterContainer/GridContainer" unique_id=1251665913]
+layout_mode = 2
+action_mode = 0
+icon = ExtResource("2_suxtg")
+flat = true
+
+[node name="Label" type="Label" parent="CenterContainer/GridContainer/Button3" unique_id=2114258582]
+layout_mode = 0
+anchor_right = 0.972
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 3.0
+offset_right = 0.483978
+offset_bottom = -5.0
+text = "Sair"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator3" type="HSeparator" parent="CenterContainer/GridContainer" unique_id=721172557]
+layout_mode = 2
+
+[node name="HSplitContainer" type="HSplitContainer" parent="CenterContainer/GridContainer" unique_id=599682292]
+layout_mode = 2
+
+[node name="ButtonMusic" type="CheckButton" parent="CenterContainer/GridContainer/HSplitContainer" unique_id=775485712]
+layout_mode = 2
+text = "Music"
+
+[node name="LovelyTown" type="AudioStreamPlayer" parent="." unique_id=1921816453]
+stream = ExtResource("4_qif5a")
+
+[connection signal="pressed" from="CenterContainer/GridContainer/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/Button3" to="." method="_on_Button3_pressed"]
+[connection signal="toggled" from="CenterContainer/GridContainer/HSplitContainer/ButtonMusic" to="." method="_on_ButtonMusic_toggled"]
