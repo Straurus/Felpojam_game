@@ -152,7 +152,7 @@ position = Vector2(4382, 686)
 
 [node name="Music" type="Node" parent="." unique_id=2146969952]
 
-[node name="LovelyTown" type="AudioStreamPlayer" parent="Music" unique_id=1309156763]
+[node name="Musica" type="AudioStreamPlayer" parent="Music" unique_id=1309156763]
 stream = ExtResource("8_ebkuo")
 
 [connection signal="body_entered" from="casa" to="casa" method="_on_body_entered"]

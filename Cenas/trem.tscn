@@ -62,5 +62,5 @@ shape = SubResource("RectangleShape2D_f4bsu")
 
 [node name="Music" type="Node" parent="." unique_id=1214053714]
 
-[node name="LovelyTown" type="AudioStreamPlayer" parent="Music" unique_id=1751100466]
+[node name="Musica" type="AudioStreamPlayer" parent="Music" unique_id=1751100466]
 stream = ExtResource("4_8gaqo")

@@ -13,6 +13,6 @@ func _process(delta: float) -> void:
 
 func playMusic():
 	if Global.song==true:
-		$Music/LovelyTown.play()
+		$Music/Musica.play()
 	elif Global.song==false:
-		$Music/LovelyTown.stop()
+		$Music/Musica.stop()

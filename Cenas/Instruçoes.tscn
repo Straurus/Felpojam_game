@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://tf4icg2pheu1"]
+
+[ext_resource type="Script" path="res://Scripts/Instruçoes.gd" id="1_fxbyg"]
+[ext_resource type="Texture2D" uid="uid://blua6des4a6bp" path="res://Assets/texture/botao/button.png" id="2_8yltv"]
+
+[node name="Control" type="Control" unique_id=62428258]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_fxbyg")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=65918936]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer" unique_id=1577008731]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/GridContainer" unique_id=1858385004]
+layout_mode = 2
+text = "Instruções:"
+
+[node name="Label2" type="Label" parent="CenterContainer/GridContainer" unique_id=732970351]
+layout_mode = 2
+text = "Movimento: setas ou WASD
+Interagir: Enter ou E
+Pular: espaço"
+
+[node name="Label4" type="Label" parent="CenterContainer/GridContainer" unique_id=322377446]
+layout_mode = 2
+text = "Objetivo: validar o maximo de passaports"
+
+[node name="Label5" type="Label" parent="CenterContainer/GridContainer" unique_id=1865809431]
+visible = false
+layout_mode = 2
+text = "Esc: Save/Load Menu"
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/GridContainer" unique_id=1682093628]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="CenterContainer/GridContainer" unique_id=213086240]
+layout_mode = 2
+text = "Musics: Lovely town;"
+
+[node name="HSeparator2" type="HSeparator" parent="CenterContainer/GridContainer" unique_id=1450282264]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CenterContainer/GridContainer" unique_id=1104314097]
+layout_mode = 2
+action_mode = 0
+icon = ExtResource("2_8yltv")
+flat = true
+
+[node name="Label" type="Label" parent="CenterContainer/GridContainer/Button" unique_id=1140870638]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.883881
+text = "Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="CenterContainer/GridContainer/Button" to="." method="_on_Button_pressed"]

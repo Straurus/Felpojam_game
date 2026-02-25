@@ -1,12 +1,12 @@
-[gd_scene format=3 uid="uid://btcmjvqbvlb3v"]
+[gd_scene format=3 uid="uid://c7ttemgodktve"]
 
-[ext_resource type="Script" uid="uid://cdmfm5304lk0m" path="res://Scripts/cartao_embarque.gd" id="1_dt70l"]
-[ext_resource type="Texture2D" uid="uid://dbht6f5m6ftxb" path="res://Assets/image/passaport_null.png" id="1_klpcg"]
-[ext_resource type="Texture2D" uid="uid://d4lpfkcj1ule8" path="res://Assets/image/aprovado.png" id="2_c6fx7"]
-[ext_resource type="Texture2D" uid="uid://dod6l8702rhs5" path="res://Assets/image/negado.png" id="3_dt70l"]
-[ext_resource type="Script" uid="uid://bh48rn7gd3ea7" path="res://Scripts/passaport/cabelo.gd" id="5_vqf7j"]
-[ext_resource type="Script" uid="uid://cbsos0yxoexau" path="res://Scripts/button_cartao.gd" id="6_vqf7j"]
-[ext_resource type="AudioStream" uid="uid://bbmpoxopugn0n" path="res://Assets/Music/Lovely town.ogg" id="7_6y4y0"]
+[ext_resource type="Script" uid="uid://cdmfm5304lk0m" path="res://Scripts/cartao_embarque.gd" id="1_7xlms"]
+[ext_resource type="Texture2D" uid="uid://dbht6f5m6ftxb" path="res://Assets/image/passaport_null.png" id="2_v2psx"]
+[ext_resource type="Texture2D" uid="uid://d4lpfkcj1ule8" path="res://Assets/image/aprovado.png" id="3_q5c5s"]
+[ext_resource type="Texture2D" uid="uid://dod6l8702rhs5" path="res://Assets/image/negado.png" id="4_ux4q2"]
+[ext_resource type="Script" uid="uid://bh48rn7gd3ea7" path="res://Scripts/passaport/cabelo.gd" id="5_i1fji"]
+[ext_resource type="Script" uid="uid://cbsos0yxoexau" path="res://Scripts/button_cartao.gd" id="6_qdvhm"]
+[ext_resource type="AudioStream" uid="uid://bbmpoxopugn0n" path="res://Assets/Music/Lovely town.ogg" id="7_mxc0d"]
 
 [node name="CartaoEmbarque" type="Control" unique_id=376260999]
 layout_mode = 3
@@ -15,7 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_dt70l")
+script = ExtResource("1_7xlms")
 metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=106704075]
@@ -29,7 +29,7 @@ metadata/_edit_lock_ = true
 show_behind_parent = true
 position = Vector2(571, 324)
 scale = Vector2(0.9583333, 1.0733334)
-texture = ExtResource("1_klpcg")
+texture = ExtResource("2_v2psx")
 metadata/_edit_lock_ = true
 
 [node name="linhaFerrea" type="RichTextLabel" parent="." unique_id=1833177664]
@@ -64,21 +64,20 @@ offset_left = 652.0
 offset_top = 222.0
 offset_right = 732.0
 offset_bottom = 340.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/default_color = Color(0.99607843, 0.21960784, 0.40392157, 1)
 bbcode_enabled = true
-text = "Castanho"
+text = "verde com  mechas coloridas"
 metadata/_edit_lock_ = true
 
 [node name="rosto_identidade" type="RichTextLabel" parent="." unique_id=478655077]
 layout_mode = 0
-offset_left = 652.0
+offset_left = 656.0
 offset_top = 366.0
-offset_right = 732.0
-offset_bottom = 422.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
+offset_right = 736.0
+offset_bottom = 440.0
+theme_override_colors/default_color = Color(0.99607843, 0.21960784, 0.40392157, 1)
 bbcode_enabled = true
-text = "sem pinta"
-metadata/_edit_lock_ = true
+text = "com heterocromia"
 
 [node name="escolha" type="OptionButton" parent="." unique_id=1973647338]
 layout_mode = 0
@@ -89,9 +88,9 @@ offset_bottom = 582.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 flat = true
 item_count = 2
-popup/item_0/icon = ExtResource("2_c6fx7")
+popup/item_0/icon = ExtResource("3_q5c5s")
 popup/item_0/id = 0
-popup/item_1/icon = ExtResource("3_dt70l")
+popup/item_1/icon = ExtResource("4_ux4q2")
 popup/item_1/id = 1
 metadata/_edit_lock_ = true
 
@@ -100,18 +99,17 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.16100001
 anchor_top = 0.18200001
-anchor_right = 0.36200002
-anchor_bottom = 0.47700003
-offset_left = 7.6299896
-offset_top = 15.699982
-offset_right = -19.540009
-offset_bottom = -0.05001831
+anchor_right = 0.36800003
+anchor_bottom = 0.51900005
+offset_left = 38.527985
+offset_top = -21.936005
+offset_right = 14.961975
+offset_bottom = -13.948029
 theme_override_colors/default_color = Color(0.99607843, 0.21960784, 0.40392157, 1)
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "Castanho"
-script = ExtResource("5_vqf7j")
-metadata/_edit_lock_ = true
+text = "verde com  mechas coloridas"
+script = ExtResource("5_i1fji")
 
 [node name="rosto" type="RichTextLabel" parent="." unique_id=1743115471]
 layout_mode = 1
@@ -120,15 +118,14 @@ anchor_left = 0.16100001
 anchor_top = 0.18200001
 anchor_right = 0.36200002
 anchor_bottom = 0.47700003
-offset_left = 11.62999
-offset_top = 249.34
-offset_right = -27.540009
-offset_bottom = 239.95001
+offset_left = -17.472015
+offset_top = 250.064
+offset_right = 25.873993
+offset_bottom = 240.67401
 theme_override_colors/default_color = Color(0.99607843, 0.21960784, 0.40392157, 1)
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "sem pinta"
-metadata/_edit_lock_ = true
+text = "com heterocromia"
 
 [node name="roupa" type="RichTextLabel" parent="." unique_id=2049259264]
 layout_mode = 1
@@ -144,7 +141,7 @@ offset_bottom = 335.95
 theme_override_colors/default_color = Color(0.99607843, 0.21960784, 0.40392157, 1)
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "preta"
+text = "Rosa felps"
 metadata/_edit_lock_ = true
 
 [node name="nome" type="RichTextLabel" parent="." unique_id=725017915]
@@ -178,11 +175,11 @@ offset_right = 1145.0
 offset_bottom = 647.0
 theme_override_colors/font_color = Color(0.99607843, 0.21960784, 0.40392157, 1)
 text = "proximo"
-script = ExtResource("6_vqf7j")
+script = ExtResource("6_qdvhm")
 
 [node name="Music" type="Node" parent="." unique_id=1899839921]
 
 [node name="Musica" type="AudioStreamPlayer" parent="Music" unique_id=745810798]
-stream = ExtResource("7_6y4y0")
+stream = ExtResource("7_mxc0d")
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

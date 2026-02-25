@@ -14,6 +14,6 @@ func _process(delta: float) -> void:
 
 func _on_pressed():
 	#Global.pessoas -= 1
-	Cabelo.randonPessoas()
+	CartaoEmbarque.randonPessoas()
 	#get_tree().change_scene_to_file("res://Cenas/cartao_embarque.tscn")
 	pass

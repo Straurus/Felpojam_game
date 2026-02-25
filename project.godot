@@ -27,6 +27,7 @@ Cabelo="*uid://bh48rn7gd3ea7"
 folder_colors={
 "res://Assets/": "green",
 "res://Cenas/": "orange",
+"res://Cenas/pessoas/": "red",
 "res://Scripts/": "yellow"
 }
 

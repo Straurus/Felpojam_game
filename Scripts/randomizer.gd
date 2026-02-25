@@ -1,7 +1,7 @@
 extends Node
 
 var lista_palavras_cabeca = ["cabelo_branco", "cabelo_preto", "cabelo_castanho", "cabelo_ruivo", "cabelo_colorido"]
-var lista_palavras_rosto = ["com_olhos_castanhos", "com_olhos_azuis", "com_olhos_vermelho", "sem_um_olhos", "com_heterocromia"]
+var lista_palavras_rosto = ["com_olhos_castanhos", "com_olhos_azuis", "com_olhos_vermelho", "com_oculos", "com_heterocromia"]
 var lista_palavras_roupa = ["preta", "branca", "Laranja", "bordo", "rosa_Felps"]
 
 func _ready():

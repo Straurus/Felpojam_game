@@ -22,7 +22,7 @@ func _on_Button_pressed():
 
 
 func _on_Button2_pressed():
-	get_tree().change_scene_to_file("")
+	get_tree().change_scene_to_file("res://Cenas/Instruçoes.tscn")
 	#queue_free()
 
 
@@ -34,10 +34,10 @@ func _on_ButtonMusic_toggled(button_pressed):
 	if get_node("CenterContainer/GridContainer/HSplitContainer/ButtonMusic").button_pressed==true:
 		Global.song = true
 		#Global.checkMusic()
-		$LovelyTown.play()
+		$Musica.play()
 		pass
 	else:
 		Global.song = false
 		#Global.checkMusic()
-		$LovelyTown.stop()
+		$Musica.stop()
 		pass

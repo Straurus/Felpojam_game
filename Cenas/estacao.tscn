@@ -98,7 +98,7 @@ polygon = PackedVector2Array(-4, 46, -13, 46, -13, 37, -17, 37, -17, 31, -20, 31
 
 [node name="Music" type="Node" parent="." unique_id=1426477126]
 
-[node name="LovelyTown" type="AudioStreamPlayer" parent="Music" unique_id=1049505496]
+[node name="Musica" type="AudioStreamPlayer" parent="Music" unique_id=1049505496]
 stream = ExtResource("7_486ma")
 
 [connection signal="body_entered" from="pontotrabalho" to="pontotrabalho" method="_on_body_entered"]
