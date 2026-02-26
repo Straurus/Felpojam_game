@@ -23,7 +23,7 @@ func _on_body_entered(body: Node2D):
 	#stairDn=false
 
 func  Tp(body):
-	Global.last=1
+	Global.last=0
 	get_tree().change_scene_to_file("res://Cenas/trem.tscn")
 	c=false
 	Global.pessoas=randf_range(1,5)

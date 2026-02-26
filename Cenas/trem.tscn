@@ -33,10 +33,11 @@ size = Vector2(25, 647)
 size = Vector2(2582, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_id70p"]
-size = Vector2(48, 82)
+size = Vector2(56, 82)
 
-[node name="Train" type="Node2D" unique_id=962809977]
+[node name="Train" type="Node2D" unique_id=962809977 node_paths=PackedStringArray("body")]
 script = ExtResource("1_67l53")
+body = NodePath("Player")
 metadata/_edit_lock_ = true
 
 [node name="Trem1Export" type="Sprite2D" parent="." unique_id=1437666981]
@@ -44,11 +45,18 @@ position = Vector2(1296, 504)
 texture = ExtResource("2_y0sxj")
 metadata/_edit_lock_ = true
 
+[node name="Label" type="Label" parent="Trem1Export" unique_id=591181160]
+offset_left = 24.0
+offset_top = 68.0
+offset_right = 67.0
+offset_bottom = 91.0
+theme_override_colors/font_color = Color(0.99607843, 0.21960784, 0.40392157, 1)
+text = "saída"
+
 [node name="Player" type="CharacterBody2D" parent="." unique_id=773185441]
-position = Vector2(2088, 528.00006)
+position = Vector2(1332, 528)
 scale = Vector2(0.9, 0.9)
 script = ExtResource("2_mqj3t")
-metadata/_edit_lock_ = true
 
 [node name="Personagem" type="Sprite2D" parent="Player" unique_id=2055492901]
 scale = Vector2(0.4, 0.4)
@@ -59,10 +67,11 @@ texture = ExtResource("3_jwh6s")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player" unique_id=1621123314]
 polygon = PackedVector2Array(-4, 46, -13, 46, -13, 37, -17, 37, -17, 31, -20, 31, -20, 21, -23, 21, -23, 17, -25, 17, -25, 5, -23, 5, -23, -8, -20, -8, -20, -21, -17, -21, -17, -24, -14, -24, -14, -43, -11, -43, -11, -46, -7, -46, -7, -48, 6, -48, 6, -47, 10, -47, 10, -43, 13, -43, 13, -24, 16, -24, 16, -20, 19, -20, 19, -8, 22, -8, 22, 5, 26, 5, 25, 18, 23, 18, 22.1934, 21.226395, 19, 21, 19, 31, 16, 31, 15.999996, 37.42089, 13, 37, 13, 43, 16, 43, 16, 46, 3, 46, 3, 31, 0, 31, -1, 28, -4, 28)
 
-[node name="pessoa1" type="Area2D" parent="." unique_id=1349211468]
+[node name="pessoa1" type="Area2D" parent="." unique_id=1349211468 node_paths=PackedStringArray("body")]
 position = Vector2(2176, 520)
 priority = 3
 script = ExtResource("5_2mjyl")
+body = NodePath("../Player")
 metadata/_edit_lock_ = true
 
 [node name="CollisionShapeP1" type="CollisionShape2D" parent="pessoa1" unique_id=1846714766]
@@ -136,10 +145,12 @@ stream = ExtResource("4_8gaqo")
 [node name="saida" type="Area2D" parent="." unique_id=93821300]
 position = Vector2(1328, 496)
 script = ExtResource("7_h3vwj")
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="saida" unique_id=1691079984]
-position = Vector2(0, 31)
+position = Vector2(4, 31)
 shape = SubResource("RectangleShape2D_id70p")
+metadata/_edit_lock_ = true
 
 [connection signal="body_entered" from="pessoa1" to="pessoa1" method="_on_body_entered"]
 [connection signal="body_exited" from="pessoa1" to="pessoa1" method="_on_body_exited"]

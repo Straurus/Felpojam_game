@@ -1,12 +1,22 @@
 extends Node2D
 
-
+@export var body:CharacterBody2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	playMusic()
+	check_posicao(body)
 	#Global.lastPessoa=0
 	pass # Replace with function body.
 
+func check_posicao(body):
+	if Global.last==0:
+		#entrada
+		body.global_position =Vector2(1336,528)
+		#Global.last=0
+	if Global.last==1:
+		#cadeiras
+		body.global_position =Vector2(2128,528)
+		#Global.last=1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

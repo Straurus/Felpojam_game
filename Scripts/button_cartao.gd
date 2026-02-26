@@ -16,6 +16,7 @@ func _on_pressed():
 	#Global.pessoas -= 1
 	#CartaoEmbarque.randonPessoas()
 	Global.prinder()
+	Global.last=1
 	if Global.lastPessoa==0:
 		Global.lastPessoa=1
 	elif Global.lastPessoa==1:
