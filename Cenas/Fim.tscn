@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://cjiaip1v60ebw"]
+
+[ext_resource type="Script" uid="uid://crw7dqwe823qh" path="res://Scripts/Instruçoes.gd" id="1_5gu1h"]
+[ext_resource type="Texture2D" uid="uid://blua6des4a6bp" path="res://Assets/texture/botao/button.png" id="2_bqjjj"]
+
+[node name="End?" type="Control" unique_id=1614855451]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5gu1h")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1029951137]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer" unique_id=1782014489]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/GridContainer" unique_id=1812587822]
+layout_mode = 2
+text = "Instruções:"
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/GridContainer" unique_id=450087664]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="CenterContainer/GridContainer" unique_id=555603148]
+layout_mode = 2
+text = "Fim do jogo...
+por enquando"
+
+[node name="HSeparator2" type="HSeparator" parent="CenterContainer/GridContainer" unique_id=1908450088]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CenterContainer/GridContainer" unique_id=1501254122]
+layout_mode = 2
+action_mode = 0
+icon = ExtResource("2_bqjjj")
+flat = true
+
+[node name="Label" type="Label" parent="CenterContainer/GridContainer/Button" unique_id=233437141]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.883881
+text = "Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="CenterContainer/GridContainer/Button" to="." method="_on_Button_pressed"]

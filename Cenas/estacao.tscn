@@ -84,7 +84,8 @@ position = Vector2(3.5, -585)
 shape = SubResource("RectangleShape2D_kpsxp")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=66660534]
-position = Vector2(575, 503)
+position = Vector2(575, 480)
+scale = Vector2(1.5, 1.5)
 script = ExtResource("3_r26kg")
 
 [node name="Personagem" type="Sprite2D" parent="Player" unique_id=1581201515]

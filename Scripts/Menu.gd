@@ -17,6 +17,8 @@ func _process(delta):
 
 func _on_Button_pressed():
 	Global.last=0
+	Global.day=0
+	Global.sleep=false
 	get_tree().change_scene_to_file("res://Cenas/casa.tscn")
 	#queue_free()
 

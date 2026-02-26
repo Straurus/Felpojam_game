@@ -12,7 +12,7 @@ var c=false
 func _process(delta: float) -> void:
 	if c==true and Input.is_action_pressed("ui_accept"):
 		Tp(bodyPlayer)
-	print(c," trem")
+	#print(c," trem")
 	pass
 
 @export var alvo_posicao: Marker2D 
@@ -23,10 +23,11 @@ func _on_body_entered(body: Node2D):
 	bodyPlayer=body
 	pass
 	await get_tree().create_timer(2.0).timeout
+	Global.last=1
 	#stairDn=false
 
 func  Tp(body):
-	Global.last=1
+	#Global.last=1
 	get_tree().change_scene_to_file("res://Cenas/estacao.tscn")
 	#c=false
 	pass
@@ -34,4 +35,15 @@ func  Tp(body):
 
 func _on_body_exited(body: Node2D) -> void:
 	c=false
+	pass # Replace with function body.
+
+
+func _on_body_entered_train(body: Node2D) -> void:
+	await get_tree().create_timer(0.1).timeout
+	c=true
+	bodyPlayer=body
+	pass
+	await get_tree().create_timer(2.0).timeout
+	#stairDn=false
+	Global.last=2
 	pass # Replace with function body.

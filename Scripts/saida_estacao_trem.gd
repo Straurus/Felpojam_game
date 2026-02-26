@@ -9,7 +9,7 @@ var c=false
 func _process(delta: float) -> void:
 	if c==true and Input.is_action_pressed("ui_accept"):
 		Tp(bodyPlayer)
-	print(c," loja")
+	#print(c," loja")
 	pass
 
 @export var alvo_posicao: Marker2D 
@@ -23,7 +23,7 @@ func _on_body_entered(body: Node2D):
 	#stairDn=false
 
 func  Tp(body):
-	Global.last=2
+	Global.last=1
 	get_tree().change_scene_to_file("res://Cenas/villa.tscn")
 	c=false
 	pass

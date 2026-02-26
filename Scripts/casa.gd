@@ -31,3 +31,7 @@ func playMusic():
 		$Music/Musica.play()
 	elif Global.song==false:
 		$Music/Musica.stop()
+
+
+func _on_cama_body_exited(body: Node2D) -> void:
+	pass # Replace with function body.

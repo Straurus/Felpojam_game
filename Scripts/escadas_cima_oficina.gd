@@ -8,7 +8,7 @@ func _ready() -> void:
 var stairDn=false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print(stairDn," Up")
+	#print(stairDn," Up")
 	if stairDn==true and Input.is_action_pressed("ui_accept"):
 		Tp(bodyPlayer)
 	pass
@@ -24,7 +24,7 @@ func _on_body_entered(body: Node2D):
 			
 #var x
 func  Tp(body):
-	body.global_position = alvo_posicao.global_position
+	#body.global_position = alvo_posicao.global_position
 	stairDn=false
 	pass
 

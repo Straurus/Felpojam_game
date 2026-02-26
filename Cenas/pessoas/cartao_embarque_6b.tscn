@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://d4lpfkcj1ule8" path="res://Assets/image/aprovado.png" id="3_s365n"]
 [ext_resource type="Texture2D" uid="uid://dod6l8702rhs5" path="res://Assets/image/negado.png" id="4_ynsep"]
 [ext_resource type="Script" uid="uid://bh48rn7gd3ea7" path="res://Scripts/passaport/cabelo.gd" id="5_1de3h"]
+[ext_resource type="Script" uid="uid://bs5ym7b0jvr4s" path="res://Scripts/escolhas.gd" id="5_2sfmn"]
 [ext_resource type="Script" uid="uid://cbsos0yxoexau" path="res://Scripts/button_cartao.gd" id="6_gen4q"]
 [ext_resource type="AudioStream" uid="uid://bbmpoxopugn0n" path="res://Assets/Music/Lovely town.ogg" id="7_mmquw"]
 
@@ -93,6 +94,7 @@ popup/item_0/icon = ExtResource("3_s365n")
 popup/item_0/id = 0
 popup/item_1/icon = ExtResource("4_ynsep")
 popup/item_1/id = 1
+script = ExtResource("5_2sfmn")
 metadata/_edit_lock_ = true
 
 [node name="cabelo" type="RichTextLabel" parent="." unique_id=15507398]
@@ -185,4 +187,5 @@ script = ExtResource("6_gen4q")
 [node name="Musica" type="AudioStreamPlayer" parent="Music" unique_id=745810798]
 stream = ExtResource("7_mmquw")
 
+[connection signal="item_selected" from="escolha" to="escolha" method="_on_item_selected"]
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

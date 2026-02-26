@@ -10,7 +10,7 @@ func _process(delta: float) -> void:
 	#print(c)
 	if c==true and Input.is_action_pressed("ui_accept"):
 		Tp(bodyPlayer)
-	print(c)
+	#print(c)
 	pass
 
 @export var alvo_posicao: Marker2D 
