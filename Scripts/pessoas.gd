@@ -60,7 +60,7 @@ func  Tp(body):
 		if Global.day==0:
 			get_tree().change_scene_to_file("res://Cenas/pessoas/cartao_embarque_2a.tscn")
 		elif Global.day==1:
-			get_tree().change_scene_to_file("res://Cenas/pessoas/cartao_embarque_4a.tscn")
+			get_tree().change_scene_to_file("res://Cenas/pessoas/cartao_embarque_5b.tscn")
 		elif Global.day==2:
 			get_tree().change_scene_to_file("res://Cenas/pessoas/cartao_embarque_6b.tscn")
 		elif Global.day==3:

@@ -158,7 +158,7 @@ offset_bottom = 574.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 19
 bbcode_enabled = true
-text = "Sir Nofaxuel"
+text = "Geraldo"
 metadata/_edit_lock_ = true
 
 [node name="cidade" type="RichTextLabel" parent="." unique_id=1302139332]
