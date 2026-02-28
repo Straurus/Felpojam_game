@@ -9,6 +9,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	checkMusic()
+	checkCamera()
 	pass
 #var last:int
 
@@ -25,3 +27,14 @@ func playMusic():
 		$Music/Musica.play()
 	elif Global.song==false:
 		$Music/Musica.stop()
+
+func checkCamera():
+	if Global.camera==true:
+		$Player/Camera2D.enabled=true
+	elif Global.camera==false:
+		$Player/Camera2D.enabled=false
+func checkMusic():
+	if Input.is_action_just_released("ui_close_dialog"):
+		await get_tree().create_timer(1.0).timeout
+		playMusic()
+	pass

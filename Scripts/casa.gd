@@ -1,16 +1,17 @@
 extends Node2D
 @export var body:CharacterBody2D
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	playMusic()
 	check_posicao(body)
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
 	pass
+
+func _process(delta: float) -> void:
+	checkMusic()
+	checkCamera()
+	
+	pass
+	
 
 func check_posicao(body):
 	if Global.last==0:
@@ -32,6 +33,16 @@ func playMusic():
 	elif Global.song==false:
 		$Music/Musica.stop()
 
+func checkCamera():
+	if Global.camera==true:
+		$Player/Camera2D.enabled=true
+	elif Global.camera==false:
+		$Player/Camera2D.enabled=false
+func checkMusic():
+	if Input.is_action_just_released("ui_close_dialog"):
+		await get_tree().create_timer(1.0).timeout
+		playMusic()
+	pass
 
 func _on_cama_body_exited(body: Node2D) -> void:
 	pass # Replace with function body.

@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://dhdt408lrb2op" path="res://Scripts/ir_estacao_trem.gd" id="4_u1ssj"]
 [ext_resource type="Script" uid="uid://b72ob0mkefjk4" path="res://Scripts/ir_lojas.gd" id="5_ebkuo"]
 [ext_resource type="AudioStream" uid="uid://bbmpoxopugn0n" path="res://Assets/Music/Lovely town.ogg" id="8_ebkuo"]
+[ext_resource type="PackedScene" uid="uid://dt0tc0ddt32xu" path="res://Cenas/SubMenu.tscn" id="9_oufg4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j47lh"]
 size = Vector2(241.52757, 137.18011)
@@ -154,6 +155,12 @@ position = Vector2(4382, 686)
 
 [node name="Musica" type="AudioStreamPlayer" parent="Music" unique_id=1309156763]
 stream = ExtResource("8_ebkuo")
+
+[node name="SubMenu" parent="." unique_id=1728319200 instance=ExtResource("9_oufg4")]
+offset_left = -1067.0
+offset_top = 276.0
+offset_right = -1067.0
+offset_bottom = 276.0
 
 [connection signal="body_entered" from="casa" to="casa" method="_on_body_entered"]
 [connection signal="body_exited" from="casa" to="casa" method="_on_body_exited"]

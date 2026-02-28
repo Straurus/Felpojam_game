@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://dt0tc0ddt32xu"]
+
+[ext_resource type="Script" uid="uid://dv16gifnpo63y" path="res://Scripts/SubMenu.gd" id="1_ey05k"]
+[ext_resource type="Texture2D" uid="uid://blua6des4a6bp" path="res://Assets/texture/botao/button.png" id="2_fqwmi"]
+[ext_resource type="Texture2D" uid="uid://bnb151dpduood" path="res://Assets/image/Sprite-3.png" id="3_fqwmi"]
+
+[node name="SubMenu" type="Control" unique_id=1728319200]
+layout_mode = 3
+anchor_right = 1.001
+anchor_bottom = 1.0
+script = ExtResource("1_ey05k")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=2109975431]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 0.993
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer" unique_id=451991152]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CenterContainer/GridContainer" unique_id=1496425200]
+layout_mode = 2
+icon = ExtResource("2_fqwmi")
+flat = true
+
+[node name="Label" type="Label" parent="CenterContainer/GridContainer/Button" unique_id=2034098648]
+layout_mode = 0
+anchor_right = 0.972
+anchor_bottom = 1.0
+text = "Voltar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button2" type="Button" parent="CenterContainer/GridContainer" unique_id=1602474587]
+layout_mode = 2
+icon = ExtResource("2_fqwmi")
+flat = true
+
+[node name="Label" type="Label" parent="CenterContainer/GridContainer/Button2" unique_id=1759330233]
+layout_mode = 0
+anchor_right = 0.972
+anchor_bottom = 1.0
+text = "Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button3" type="Button" parent="CenterContainer/GridContainer" unique_id=876860447]
+layout_mode = 2
+icon = ExtResource("2_fqwmi")
+flat = true
+
+[node name="Label" type="Label" parent="CenterContainer/GridContainer/Button3" unique_id=1527463208]
+layout_mode = 0
+anchor_right = 0.972
+anchor_bottom = 1.0
+text = "Sair"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonMusic" type="CheckButton" parent="CenterContainer/GridContainer" unique_id=375460012]
+layout_mode = 2
+text = "Musica"
+
+[node name="Sprite3" type="Sprite2D" parent="CenterContainer/GridContainer" unique_id=1317793375]
+show_behind_parent = true
+position = Vector2(150.00009, 182.00002)
+scale = Vector2(0.44687504, 0.421875)
+texture = ExtResource("3_fqwmi")
+region_enabled = true
+region_rect = Rect2(0, 0, 2579, 1549)
+
+[node name="Camera2D" type="Camera2D" parent="CenterContainer/GridContainer/Sprite3" unique_id=1048958348]
+position = Vector2(13.426392, 4.7407227)
+scale = Vector2(2.237762, 2.3703701)
+
+[connection signal="pressed" from="CenterContainer/GridContainer/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/Button3" to="." method="_on_Button3_pressed"]
+[connection signal="toggled" from="CenterContainer/GridContainer/ButtonMusic" to="." method="_on_ButtonMusic_toggled"]

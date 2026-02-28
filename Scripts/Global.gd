@@ -11,7 +11,7 @@ var y=false
 var x=false
 var z=false
 var sleep=false
-# Called when the node enters the scene tree for the first time.
+var camera=true
 func _ready() -> void:
 	selMusic=0
 	pass # Replace with function body.
@@ -25,20 +25,20 @@ func _process(delta: float) -> void:
 		Global.sleep=true
 	pass
 
-var selMusic
+var selMusic=1
 var audio
 var song=false
 func selcMusic():
 	if selMusic==0:
-		audio=get_node("main")
+		audio=get_node("audio")
 	elif selMusic==1:
-		get_node("main").stop()
+		get_node("audio").stop()
 
 func playMusic():
-	audio.play()
+	$audio.play()
 	
 func stopMusic():
-	audio.stop()
+	$audio.stop()
 	
 func checkMusic():
 	selcMusic()

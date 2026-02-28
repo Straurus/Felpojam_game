@@ -3,11 +3,10 @@
 [ext_resource type="Script" uid="uid://cry0go45ly035" path="res://Scripts/Global.gd" id="1_qe5st"]
 [ext_resource type="AudioStream" uid="uid://bbmpoxopugn0n" path="res://Assets/Music/Lovely town.ogg" id="2_qe5st"]
 
-[node name="Music" type="Control" unique_id=324329004]
+[node name="Music" type="Control" unique_id=427962533]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_qe5st")
 
-[node name="main" type="AudioStreamPlayer" parent="." unique_id=449267419]
+[node name="audio" type="AudioStreamPlayer" parent="." unique_id=449267419]
 stream = ExtResource("2_qe5st")
-autoplay = true

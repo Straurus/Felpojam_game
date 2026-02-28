@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://m3wduivvetoe" path="res://Scripts/character_body.gd" id="3_r26kg"]
 [ext_resource type="Texture2D" uid="uid://vmne3cyxm0vp" path="res://Assets/sprites/objects/personagem.png" id="4_v4gnm"]
 [ext_resource type="AudioStream" uid="uid://bbmpoxopugn0n" path="res://Assets/Music/Lovely town.ogg" id="7_486ma"]
+[ext_resource type="PackedScene" uid="uid://dt0tc0ddt32xu" path="res://Cenas/SubMenu.tscn" id="8_ec5q0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8mt8x"]
 size = Vector2(86, 90)
@@ -101,6 +102,13 @@ polygon = PackedVector2Array(-4, 46, -13, 46, -13, 37, -17, 37, -17, 31, -20, 31
 
 [node name="Musica" type="AudioStreamPlayer" parent="Music" unique_id=1049505496]
 stream = ExtResource("7_486ma")
+
+[node name="SubMenu" parent="." unique_id=1728319200 instance=ExtResource("8_ec5q0")]
+visible = false
+offset_left = 1598.0
+offset_top = 136.0
+offset_right = 1598.0
+offset_bottom = 136.0
 
 [connection signal="body_entered" from="pontotrabalho" to="pontotrabalho" method="_on_body_entered"]
 [connection signal="body_exited" from="pontotrabalho" to="pontotrabalho" method="_on_body_exited"]
