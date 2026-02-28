@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="train inspector"
+config/name="Bilhete por favor"
 run/main_scene="uid://bfr3srq8hdcak"
 config/features=PackedStringArray("4.6", "Forward Plus")
 
