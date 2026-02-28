@@ -7,7 +7,7 @@
 
 [sub_resource type="StyleBoxTexture" id="1"]
 texture = ExtResource("2_u7eip")
-region_rect = Rect2(0, 0, 800, 600)
+region_rect = Rect2(0, 0, 2566, 1542)
 
 [sub_resource type="StyleBoxTexture" id="2"]
 region_rect = Rect2(0, 0, 365, 107)
