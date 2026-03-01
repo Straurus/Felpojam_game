@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dv16gifnpo63y" path="res://Scripts/SubMenu.gd" id="1_ey05k"]
 [ext_resource type="Texture2D" uid="uid://blua6des4a6bp" path="res://Assets/texture/botao/button.png" id="2_fqwmi"]
-[ext_resource type="Texture2D" uid="uid://bnb151dpduood" path="res://Assets/image/Sprite-3.png" id="3_fqwmi"]
+[ext_resource type="Texture2D" uid="uid://c8wnewc5h51wo" path="res://Assets/image/banner.png" id="3_fqwmi"]
 
 [node name="SubMenu" type="Control" unique_id=1728319200]
 layout_mode = 3
@@ -63,15 +63,15 @@ text = "Musica"
 
 [node name="Sprite3" type="Sprite2D" parent="CenterContainer/GridContainer" unique_id=1317793375]
 show_behind_parent = true
-position = Vector2(150.00009, 182.00002)
-scale = Vector2(0.44687504, 0.421875)
+position = Vector2(147.99997, 184.00002)
+scale = Vector2(0.9, 0.9)
 texture = ExtResource("3_fqwmi")
 region_enabled = true
-region_rect = Rect2(0, 0, 2579, 1549)
+region_rect = Rect2(0, 0, 1292, 736)
 
 [node name="Camera2D" type="Camera2D" parent="CenterContainer/GridContainer/Sprite3" unique_id=1048958348]
-position = Vector2(13.426392, 4.7407227)
-scale = Vector2(2.237762, 2.3703701)
+position = Vector2(8.888916, 0)
+scale = Vector2(1.111111, 1.111111)
 
 [connection signal="pressed" from="CenterContainer/GridContainer/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="CenterContainer/GridContainer/Button2" to="." method="_on_button_2_pressed"]

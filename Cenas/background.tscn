@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://c6aaxdoiylaft"]
+
+[ext_resource type="Texture2D" uid="uid://bc3t5qfwd3pix" path="res://Assets/sprites/background/chaopratudo.png" id="1_y0a1e"]
+[ext_resource type="Texture2D" uid="uid://c5s5gw0jv741o" path="res://Assets/sprites/background/nuvensparatudo.png" id="2_85asm"]
+[ext_resource type="Texture2D" uid="uid://vlog6n3xmktp" path="res://Assets/sprites/background/back03.png" id="3_w476n"]
+[ext_resource type="Texture2D" uid="uid://b33cff7lygw2y" path="res://Assets/sprites/background/back02.png" id="4_stsyl"]
+[ext_resource type="Texture2D" uid="uid://co3lu2vnia4o5" path="res://Assets/sprites/background/back01.png" id="5_77qk3"]
+[ext_resource type="Texture2D" uid="uid://ctn8jlqhwrhna" path="res://Assets/sprites/background/plantas.png" id="6_mq445"]
+
+[node name="background" type="Node2D" unique_id=1027385220]
+
+[node name="Chaopratudo" type="Sprite2D" parent="." unique_id=533037054]
+z_index = 1
+position = Vector2(544, -304)
+texture = ExtResource("1_y0a1e")
+
+[node name="Nuvensparatudo" type="Sprite2D" parent="." unique_id=361213093]
+position = Vector2(552, -280)
+scale = Vector2(0.9857493, 1)
+texture = ExtResource("2_85asm")
+
+[node name="Back03" type="Sprite2D" parent="." unique_id=789372236]
+position = Vector2(536, -344)
+scale = Vector2(0.9951349, 1)
+texture = ExtResource("3_w476n")
+
+[node name="Back02" type="Sprite2D" parent="." unique_id=1697109324]
+position = Vector2(552, -280)
+scale = Vector2(0.9951349, 1)
+texture = ExtResource("4_stsyl")
+
+[node name="Back01" type="Sprite2D" parent="." unique_id=1393937390]
+position = Vector2(528, -256)
+scale = Vector2(0.9951349, 1)
+texture = ExtResource("5_77qk3")
+
+[node name="Plantas" type="Sprite2D" parent="." unique_id=1803445626]
+position = Vector2(528, -506)
+texture = ExtResource("6_mq445")

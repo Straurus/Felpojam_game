@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://bfr3srq8hdcak"]
 
 [ext_resource type="Script" uid="uid://gnjipyafrtan" path="res://Scripts/Menu.gd" id="1_xit3w"]
+[ext_resource type="Texture2D" uid="uid://c8wnewc5h51wo" path="res://Assets/image/banner.png" id="2_qif5a"]
 [ext_resource type="Texture2D" uid="uid://blua6des4a6bp" path="res://Assets/texture/botao/button.png" id="2_suxtg"]
-[ext_resource type="Texture2D" uid="uid://bnb151dpduood" path="res://Assets/image/Sprite-3.png" id="2_u7eip"]
 [ext_resource type="AudioStream" uid="uid://bbmpoxopugn0n" path="res://Assets/Music/Lovely town.ogg" id="4_qif5a"]
 
 [sub_resource type="StyleBoxTexture" id="1"]
-texture = ExtResource("2_u7eip")
-region_rect = Rect2(0, 0, 2566, 1542)
+texture = ExtResource("2_qif5a")
+region_rect = Rect2(0, 0, 1288, 717)
 
 [sub_resource type="StyleBoxTexture" id="2"]
 region_rect = Rect2(0, 0, 365, 107)

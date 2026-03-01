@@ -223,10 +223,10 @@ polygon = PackedVector2Array(-4, 46, -13, 46, -13, 37, -17, 37, -17, 31, -20, 31
 stream = ExtResource("9_636cy")
 
 [node name="SubMenu" parent="." unique_id=1728319200 instance=ExtResource("11_xvnc7")]
-offset_left = 1595.0
-offset_top = 140.0
-offset_right = 1595.0
-offset_bottom = 140.0
+offset_left = 422.0
+offset_top = -516.0
+offset_right = 422.0
+offset_bottom = -516.0
 
 [connection signal="body_entered" from="escadasBaixo" to="escadasBaixo" method="_on_body_entered"]
 [connection signal="body_exited" from="escadasBaixo" to="escadasBaixo" method="_on_body_exited"]

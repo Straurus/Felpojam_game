@@ -5,17 +5,23 @@ extends Node2D
 func _ready() -> void:
 	playMusic()
 	check_posicao(body)
+	
 	#Global.lastPessoa=0
 	pass # Replace with function body.
 
 func check_posicao(body):
 	if Global.last==0:
 		#entrada
-		body.global_position =Vector2(1336,528)
+		body.global_position =Vector2(-424,528)
 		#Global.last=0
 	if Global.last==1:
 		#cadeiras
-		body.global_position =Vector2(2128,528)
+		if Global.lastPessoa==1:
+			body.global_position =Vector2(-88,528)
+		elif Global.lastPessoa==2:
+			body.global_position =Vector2(416,528)
+		elif Global.lastPessoa==3:
+			body.global_position =Vector2(94,528)
 		#Global.last=1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://crr8pr0oaw0ba"]
 
 [ext_resource type="Script" uid="uid://d4gexkbthb46v" path="res://Scripts/villa.gd" id="1_wfhka"]
-[ext_resource type="Texture2D" uid="uid://bj5a01kl4c78u" path="res://Assets/image/vilaPixel.png" id="2_ebkuo"]
+[ext_resource type="Texture2D" uid="uid://b4rrbgff3lmkj" path="res://Assets/sprites/background/mapavila.png" id="2_oufg4"]
 [ext_resource type="Script" uid="uid://bfb5mp3ugcitb" path="res://Scripts/IrCasa.gd" id="3_hphnx"]
 [ext_resource type="Script" uid="uid://m3wduivvetoe" path="res://Scripts/character_body.gd" id="3_k2dcv"]
 [ext_resource type="Texture2D" uid="uid://vmne3cyxm0vp" path="res://Assets/sprites/objects/personagem.png" id="4_1ytt5"]
@@ -9,9 +9,10 @@
 [ext_resource type="Script" uid="uid://b72ob0mkefjk4" path="res://Scripts/ir_lojas.gd" id="5_ebkuo"]
 [ext_resource type="AudioStream" uid="uid://bbmpoxopugn0n" path="res://Assets/Music/Lovely town.ogg" id="8_ebkuo"]
 [ext_resource type="PackedScene" uid="uid://dt0tc0ddt32xu" path="res://Cenas/SubMenu.tscn" id="9_oufg4"]
+[ext_resource type="PackedScene" uid="uid://c6aaxdoiylaft" path="res://Cenas/background.tscn" id="10_j7uvi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j47lh"]
-size = Vector2(241.52757, 137.18011)
+size = Vector2(307.91605, 137.18015)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gebmh"]
 size = Vector2(461.55798, 65.09064)
@@ -54,7 +55,7 @@ metadata/_edit_lock_ = true
 [node name="vila" type="Sprite2D" parent="." unique_id=304140311]
 position = Vector2(2244, 460)
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("2_ebkuo")
+texture = ExtResource("2_oufg4")
 
 [node name="casa" type="Area2D" parent="." unique_id=1745959594]
 position = Vector2(360, 513)
@@ -62,6 +63,7 @@ scale = Vector2(0.79080003, 0.7143889)
 script = ExtResource("3_hphnx")
 
 [node name="CollisionHouse" type="CollisionShape2D" parent="casa" unique_id=1998772436]
+position = Vector2(33.194244, 0)
 shape = SubResource("RectangleShape2D_j47lh")
 
 [node name="estacaoTrem" type="Area2D" parent="." unique_id=1494682746]
@@ -111,7 +113,7 @@ shape = SubResource("RectangleShape2D_lburt")
 disabled = true
 
 [node name="chao" type="StaticBody2D" parent="." unique_id=1681171983]
-position = Vector2(986, 680)
+position = Vector2(985, 676)
 physics_material_override = SubResource("PhysicsMaterial_j47lh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="chao" unique_id=1681660314]
@@ -131,8 +133,8 @@ position = Vector2(1416, -537)
 shape = SubResource("RectangleShape2D_hiww7")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="chao" unique_id=1454303387]
-position = Vector2(-613, -96)
-polygon = PackedVector2Array(14, -19, 2512, -6, 2712, 96, 3687, 95, 3842, 148, 3973, 149, 4044, 112, 4434, 113, 4434, 124, 4043, 122, 3973, 157, 3841, 158, 3683, 103, 2710, 105, 2508, 3, 13, -6, -372, -7, -373, -21)
+position = Vector2(-591, -92)
+polygon = PackedVector2Array(14, -19, 2513, -20, 2516, 4, 2566, 5, 2566, 30, 2617, 31, 2618, 56, 2667, 57, 2669, 81, 2716, 82, 3717, 82, 3719, 107, 3768.9841, 109.3049, 3770, 132, 3816, 134, 3976, 134, 3976, 108, 4435, 107, 4434, 124, 4043, 122, 3973, 157, 3841, 158, 3764, 146, 3683, 103, 2710, 105, 2667, 108, 2507, 22, 13, -6, -372, -7, -373, -21)
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=660830839]
 position = Vector2(480, 537)
@@ -157,10 +159,50 @@ position = Vector2(4382, 686)
 stream = ExtResource("8_ebkuo")
 
 [node name="SubMenu" parent="." unique_id=1728319200 instance=ExtResource("9_oufg4")]
-offset_left = -1067.0
-offset_top = 276.0
-offset_right = -1067.0
-offset_bottom = 276.0
+offset_left = 411.0
+offset_top = -511.0
+offset_right = 411.0
+offset_bottom = -511.0
+
+[node name="background" parent="." unique_id=1027385220 instance=ExtResource("10_j7uvi")]
+z_index = -2
+position = Vector2(-67.999985, 428)
+scale = Vector2(0.2, 0.2)
+
+[node name="background2" parent="background" unique_id=2123843473 instance=ExtResource("10_j7uvi")]
+z_index = -2
+position = Vector2(3497.4993, 0)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="background3" parent="background" unique_id=116180834 instance=ExtResource("10_j7uvi")]
+z_index = -2
+position = Vector2(6992.4995, -7.5)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="background4" parent="background" unique_id=459360492 instance=ExtResource("10_j7uvi")]
+z_index = -2
+position = Vector2(10466.666, 170)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="background5" parent="background" unique_id=1473315444 instance=ExtResource("10_j7uvi")]
+z_index = -2
+position = Vector2(13973.333, 270)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="background6" parent="background" unique_id=1481804302 instance=ExtResource("10_j7uvi")]
+z_index = -2
+position = Vector2(17475, 355)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="background7" parent="background" unique_id=1634899603 instance=ExtResource("10_j7uvi")]
+z_index = -2
+position = Vector2(20935, 470)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="background8" parent="background" unique_id=2023037352 instance=ExtResource("10_j7uvi")]
+z_index = -2
+position = Vector2(24385, 580)
+scale = Vector2(0.99999994, 0.99999994)
 
 [connection signal="body_entered" from="casa" to="casa" method="_on_body_entered"]
 [connection signal="body_exited" from="casa" to="casa" method="_on_body_exited"]

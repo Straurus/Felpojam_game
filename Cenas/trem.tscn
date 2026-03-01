@@ -1,13 +1,17 @@
 [gd_scene format=3 uid="uid://j5afe7rsbg30"]
 
 [ext_resource type="Script" uid="uid://r3ad4vu1cipa" path="res://Scripts/trem.gd" id="1_67l53"]
+[ext_resource type="Texture2D" uid="uid://lorsnauxdfwf" path="res://Assets/sprites/objects/trem_dentro.png" id="2_08cvj"]
 [ext_resource type="Script" uid="uid://m3wduivvetoe" path="res://Scripts/character_body.gd" id="2_mqj3t"]
-[ext_resource type="Texture2D" uid="uid://bdh5j6ouxat70" path="res://Assets/image/trem1-export.png" id="2_y0sxj"]
 [ext_resource type="Texture2D" uid="uid://vmne3cyxm0vp" path="res://Assets/sprites/objects/personagem.png" id="3_jwh6s"]
 [ext_resource type="AudioStream" uid="uid://bbmpoxopugn0n" path="res://Assets/Music/Lovely town.ogg" id="4_8gaqo"]
 [ext_resource type="Script" uid="uid://t5sox2ueu6fe" path="res://Scripts/pessoas.gd" id="5_2mjyl"]
 [ext_resource type="Script" uid="uid://dhdt408lrb2op" path="res://Scripts/ir_estacao_trem.gd" id="7_h3vwj"]
 [ext_resource type="PackedScene" uid="uid://dt0tc0ddt32xu" path="res://Cenas/SubMenu.tscn" id="8_2mjyl"]
+[ext_resource type="Script" uid="uid://8es0cuuk4d8k" path="res://Scripts/pathAnim.gd" id="8_cxfwx"]
+[ext_resource type="Texture2D" uid="uid://cy5d8cub2r451" path="res://Assets/sprites/background/plataformas.png" id="9_08cvj"]
+[ext_resource type="PackedScene" uid="uid://c6aaxdoiylaft" path="res://Cenas/background.tscn" id="10_cxfwx"]
+[ext_resource type="Texture2D" uid="uid://c0mpnftj6xk07" path="res://Assets/sprites/background/trilho.png" id="11_id70p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_08cvj"]
 size = Vector2(38, 72)
@@ -22,7 +26,7 @@ size = Vector2(38, 72)
 rough = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qikx6"]
-size = Vector2(2529.5, 26)
+size = Vector2(3496, 37)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h3vwj"]
 size = Vector2(21, 646)
@@ -31,10 +35,56 @@ size = Vector2(21, 646)
 size = Vector2(25, 647)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f4bsu"]
-size = Vector2(2582, 20)
+size = Vector2(3520, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_id70p"]
 size = Vector2(56, 82)
+
+[sub_resource type="Curve2D" id="Curve2D_cxfwx"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17240.898, 0)
+}
+point_count = 2
+
+[sub_resource type="Animation" id="Animation_08cvj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_cxfwx"]
+resource_name = "move"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_id70p"]
+_data = {
+&"RESET": SubResource("Animation_08cvj"),
+&"move": SubResource("Animation_cxfwx")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o7wow"]
+size = Vector2(20856, 3128)
 
 [node name="Train" type="Node2D" unique_id=962809977 node_paths=PackedStringArray("body")]
 script = ExtResource("1_67l53")
@@ -42,9 +92,8 @@ body = NodePath("Player")
 metadata/_edit_lock_ = true
 
 [node name="Trem1Export" type="Sprite2D" parent="." unique_id=1437666981]
-position = Vector2(1296, 504)
-texture = ExtResource("2_y0sxj")
-metadata/_edit_lock_ = true
+position = Vector2(760, 576)
+texture = ExtResource("2_08cvj")
 
 [node name="Label" type="Label" parent="Trem1Export" unique_id=591181160]
 offset_left = 24.0
@@ -55,7 +104,7 @@ theme_override_colors/font_color = Color(0.99607843, 0.21960784, 0.40392157, 1)
 text = "saída"
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=773185441]
-position = Vector2(1332, 528)
+position = Vector2(-368.00003, 532)
 scale = Vector2(0.9, 0.9)
 script = ExtResource("2_mqj3t")
 
@@ -69,11 +118,10 @@ texture = ExtResource("3_jwh6s")
 polygon = PackedVector2Array(-4, 46, -13, 46, -13, 37, -17, 37, -17, 31, -20, 31, -20, 21, -23, 21, -23, 17, -25, 17, -25, 5, -23, 5, -23, -8, -20, -8, -20, -21, -17, -21, -17, -24, -14, -24, -14, -43, -11, -43, -11, -46, -7, -46, -7, -48, 6, -48, 6, -47, 10, -47, 10, -43, 13, -43, 13, -24, 16, -24, 16, -20, 19, -20, 19, -8, 22, -8, 22, 5, 26, 5, 25, 18, 23, 18, 22.1934, 21.226395, 19, 21, 19, 31, 16, 31, 15.999996, 37.42089, 13, 37, 13, 43, 16, 43, 16, 46, 3, 46, 3, 31, 0, 31, -1, 28, -4, 28)
 
 [node name="pessoa1" type="Area2D" parent="." unique_id=1349211468 node_paths=PackedStringArray("body")]
-position = Vector2(2176, 520)
+position = Vector2(-32, 520)
 priority = 3
 script = ExtResource("5_2mjyl")
 body = NodePath("../Player")
-metadata/_edit_lock_ = true
 
 [node name="CollisionShapeP1" type="CollisionShape2D" parent="pessoa1" unique_id=1846714766]
 position = Vector2(3, 12)
@@ -86,15 +134,13 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_jwh6s")
 
 [node name="pessoa2" type="Area2D" parent="." unique_id=1091141559]
-position = Vector2(2240, 520)
+position = Vector2(472, 520)
 priority = 2
 script = ExtResource("5_2mjyl")
-metadata/_edit_lock_ = true
 
 [node name="CollisionShapeP2" type="CollisionShape2D" parent="pessoa2" unique_id=888434114]
 position = Vector2(3, 12)
 shape = SubResource("RectangleShape2D_a5w0y")
-metadata/_edit_lock_ = true
 
 [node name="Personagem" type="Sprite2D" parent="pessoa2" unique_id=988764567]
 position = Vector2(4, 12)
@@ -102,15 +148,13 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_jwh6s")
 
 [node name="pessoa3" type="Area2D" parent="." unique_id=1593231345]
-position = Vector2(2304, 520)
+position = Vector2(992, 520)
 priority = 1
 script = ExtResource("5_2mjyl")
-metadata/_edit_lock_ = true
 
 [node name="CollisionShapeP3" type="CollisionShape2D" parent="pessoa3" unique_id=1168487754]
 position = Vector2(3, 12)
 shape = SubResource("RectangleShape2D_cxfwx")
-metadata/_edit_lock_ = true
 
 [node name="Personagem" type="Sprite2D" parent="pessoa3" unique_id=1944659407]
 position = Vector2(4, 13)
@@ -123,7 +167,7 @@ physics_material_override = SubResource("PhysicsMaterial_y0sxj")
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="chao" unique_id=298982487]
-position = Vector2(697.25, -10)
+position = Vector2(214, -4.5)
 shape = SubResource("RectangleShape2D_qikx6")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="chao" unique_id=535332364]
@@ -131,34 +175,119 @@ position = Vector2(1962, -271)
 shape = SubResource("RectangleShape2D_h3vwj")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="chao" unique_id=1123541788]
-position = Vector2(-583.5, -251.5)
+position = Vector2(-1517, -250)
 shape = SubResource("RectangleShape2D_2mjyl")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="chao" unique_id=981271827]
-position = Vector2(703, -585)
+position = Vector2(234, -585)
 shape = SubResource("RectangleShape2D_f4bsu")
 
-[node name="Music" type="Node" parent="." unique_id=1214053714]
-
-[node name="Musica" type="AudioStreamPlayer" parent="Music" unique_id=1751100466]
-stream = ExtResource("4_8gaqo")
-
 [node name="saida" type="Area2D" parent="." unique_id=93821300]
-position = Vector2(1328, 496)
+position = Vector2(-432, 496)
 script = ExtResource("7_h3vwj")
-metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="saida" unique_id=1691079984]
 position = Vector2(4, 31)
 shape = SubResource("RectangleShape2D_id70p")
-metadata/_edit_lock_ = true
 
 [node name="SubMenu" parent="." unique_id=1728319200 instance=ExtResource("8_2mjyl")]
 visible = false
-offset_left = -768.0
+offset_left = 3008.0
 offset_top = 148.0
-offset_right = -768.0
+offset_right = 3008.0
 offset_bottom = 148.0
+
+[node name="Path2D" type="Path2D" parent="." unique_id=578790901]
+scale = Vector2(1.0018039, 1)
+curve = SubResource("Curve2D_cxfwx")
+script = ExtResource("8_cxfwx")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=222385250]
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D/PathFollow2D" unique_id=307399130]
+remote_path = NodePath("../../../backgrounds")
+
+[node name="AnimationBackgroud" type="AnimationPlayer" parent="Path2D" unique_id=2064883037]
+libraries/ = SubResource("AnimationLibrary_id70p")
+
+[node name="backgrounds" type="AnimatableBody2D" parent="." unique_id=1847716250]
+scale = Vector2(1.0018039, 1)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Plataformas" type="Sprite2D" parent="backgrounds" unique_id=673014350]
+z_index = -1
+position = Vector2(800, -336)
+texture = ExtResource("9_08cvj")
+metadata/_edit_lock_ = true
+
+[node name="Plataformas2" type="Sprite2D" parent="backgrounds/Plataformas" unique_id=1419442845]
+z_index = -1
+position = Vector2(-17280, 0)
+texture = ExtResource("9_08cvj")
+
+[node name="background" parent="backgrounds" unique_id=1027385220 instance=ExtResource("10_cxfwx")]
+z_index = -2
+position = Vector2(264, -24)
+metadata/_edit_lock_ = true
+
+[node name="background2" parent="backgrounds/background" unique_id=503588675 instance=ExtResource("10_cxfwx")]
+z_index = -2
+position = Vector2(-3512, -8)
+
+[node name="background3" parent="backgrounds/background" unique_id=1187686328 instance=ExtResource("10_cxfwx")]
+z_index = -2
+position = Vector2(-6936, 0)
+
+[node name="background4" parent="backgrounds/background" unique_id=184737056 instance=ExtResource("10_cxfwx")]
+z_index = -2
+position = Vector2(-10368, -8)
+
+[node name="background5" parent="backgrounds/background" unique_id=1130564988 instance=ExtResource("10_cxfwx")]
+z_index = -2
+position = Vector2(-13848, 0)
+
+[node name="background6" parent="backgrounds/background" unique_id=752950582 instance=ExtResource("10_cxfwx")]
+z_index = -2
+position = Vector2(-17296, 8)
+
+[node name="Trilho" type="Sprite2D" parent="backgrounds" unique_id=1576405374]
+z_index = -1
+position = Vector2(792, -312)
+texture = ExtResource("11_id70p")
+metadata/_edit_lock_ = true
+
+[node name="Trilho2" type="Sprite2D" parent="backgrounds/Trilho" unique_id=159705270]
+position = Vector2(-3520, 0)
+texture = ExtResource("11_id70p")
+
+[node name="Trilho3" type="Sprite2D" parent="backgrounds/Trilho" unique_id=127103625]
+position = Vector2(-7040, 0)
+texture = ExtResource("11_id70p")
+
+[node name="Trilho4" type="Sprite2D" parent="backgrounds/Trilho" unique_id=1952729953]
+position = Vector2(-10552, 0)
+texture = ExtResource("11_id70p")
+
+[node name="Trilho5" type="Sprite2D" parent="backgrounds/Trilho" unique_id=1664543723]
+position = Vector2(-13984, 0)
+texture = ExtResource("11_id70p")
+
+[node name="Trilho6" type="Sprite2D" parent="backgrounds/Trilho" unique_id=957943478]
+position = Vector2(-17320, 0)
+texture = ExtResource("11_id70p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="backgrounds" unique_id=614779165]
+visible = false
+light_mask = 2
+visibility_layer = 2
+position = Vector2(-7852, -340)
+shape = SubResource("RectangleShape2D_o7wow")
+
+[node name="Music" type="Node" parent="." unique_id=25004351]
+
+[node name="Musica" type="AudioStreamPlayer" parent="Music" unique_id=1519503083]
+stream = ExtResource("4_8gaqo")
 
 [connection signal="body_entered" from="pessoa1" to="pessoa1" method="_on_body_entered"]
 [connection signal="body_exited" from="pessoa1" to="pessoa1" method="_on_body_exited"]
