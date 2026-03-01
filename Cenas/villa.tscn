@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://c6aaxdoiylaft" path="res://Cenas/background.tscn" id="10_j7uvi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j47lh"]
-size = Vector2(307.91605, 137.18015)
+size = Vector2(237.73395, 137.18015)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gebmh"]
 size = Vector2(461.55798, 65.09064)
@@ -58,16 +58,16 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_oufg4")
 
 [node name="casa" type="Area2D" parent="." unique_id=1745959594]
-position = Vector2(360, 513)
+position = Vector2(360, 511)
 scale = Vector2(0.79080003, 0.7143889)
 script = ExtResource("3_hphnx")
 
 [node name="CollisionHouse" type="CollisionShape2D" parent="casa" unique_id=1998772436]
-position = Vector2(33.194244, 0)
+position = Vector2(5.0581665, 0)
 shape = SubResource("RectangleShape2D_j47lh")
 
 [node name="estacaoTrem" type="Area2D" parent="." unique_id=1494682746]
-position = Vector2(4580, 612)
+position = Vector2(4580.0005, 607)
 scale = Vector2(0.79080003, 0.7143889)
 script = ExtResource("4_u1ssj")
 
@@ -134,7 +134,7 @@ shape = SubResource("RectangleShape2D_hiww7")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="chao" unique_id=1454303387]
 position = Vector2(-591, -92)
-polygon = PackedVector2Array(14, -19, 2513, -20, 2516, 4, 2566, 5, 2566, 30, 2617, 31, 2618, 56, 2667, 57, 2669, 81, 2716, 82, 3717, 82, 3719, 107, 3768.9841, 109.3049, 3770, 132, 3816, 134, 3976, 134, 3976, 108, 4435, 107, 4434, 124, 4043, 122, 3973, 157, 3841, 158, 3764, 146, 3683, 103, 2710, 105, 2667, 108, 2507, 22, 13, -6, -372, -7, -373, -21)
+polygon = PackedVector2Array(14, -19, 2513, -20, 2516, 4, 2566, 5, 2566, 30, 2617, 31, 2618, 56, 2667, 57, 2669, 81, 2716, 82, 3717, 82, 3719, 107, 3768.9841, 109.3049, 3770, 132, 3816, 134, 3976, 134, 3976, 108, 4435, 107, 4434, 124, 4043, 122, 3973, 157, 3841, 158, 3764, 146, 3683, 103, 2710, 105, 2667, 108, 2507, 22, 13, -6, -394, -8, -394, -22)
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=660830839]
 position = Vector2(480, 537)
@@ -203,6 +203,9 @@ scale = Vector2(0.99999994, 0.99999994)
 z_index = -2
 position = Vector2(24385, 580)
 scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Marker2D2" type="Marker2D" parent="." unique_id=1933756188]
+position = Vector2(527, 538)
 
 [connection signal="body_entered" from="casa" to="casa" method="_on_body_entered"]
 [connection signal="body_exited" from="casa" to="casa" method="_on_body_exited"]

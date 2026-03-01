@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 func check_posicao(body):
 	if Global.last==0:
 		#casa
-		body.global_position =Vector2(484,539)
+		body.global_position =Vector2(527,539)
 		#Global.last=0
 	if Global.last==1:
 		#estacao
