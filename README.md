@@ -1,10 +1,11 @@
 # Felpojam_game
 Jogo feito para a Felpojam
 
-Nome do jogo: Train Inspector
+Nome do jogo:
+ Bilhete por favor
 
-Equipe: 
-Straurus' Game Studio & Cia.
+Equipe:
+ Straurus' Game Studio & Cia.
 
 Integrantes da equipe:
 -Mister Straurus(Lucas G D)
@@ -21,6 +22,7 @@ Controles:
 Movimento: setas ou WASD
 Interagir: Enter ou E
 Pular: espaço
+menu: esc
 
 Classificação indicativa:
 Livre

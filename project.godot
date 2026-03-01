@@ -17,7 +17,6 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 [autoload]
 
 Global="*uid://cry0go45ly035"
-Music="*uid://bdm6w4lijjn74"
 Randomizer="*uid://bqc58a5pveaw7"
 CartaoEmbarque="*uid://cdmfm5304lk0m"
 Cabelo="*uid://bh48rn7gd3ea7"
